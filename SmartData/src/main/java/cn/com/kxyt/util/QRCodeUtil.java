@@ -204,6 +204,10 @@ public class QRCodeUtil {
                 BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);
                 Map hints = new HashMap();
                 hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+                //精度
+                hints.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
+                //复杂模式
+                hints.put(DecodeHintType.PURE_BARCODE, Boolean.TRUE);
                 Result result = formatReader.decode(binaryBitmap, hints);
                 return result;
             }

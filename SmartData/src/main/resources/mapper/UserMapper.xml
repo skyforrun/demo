@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.kxyt.mapper.UserMapper">
+    <resultMap id="baseMap" type="cn.com.kxyt.entity.User">
+        <id column="id" jdbcType="VARCHAR" property="id"></id>
+        <result column="name" jdbcType="VARCHAR" property="name"></result>
+
+    </resultMap>
+
+    <select id="selectUserById" resultType="cn.com.kxyt.entity.User" parameterType="java.lang.String">
+         select * from "U_User" WHERE id = #{id, jdbcType=VARCHAR}
+    </select>
+
+
+</mapper>

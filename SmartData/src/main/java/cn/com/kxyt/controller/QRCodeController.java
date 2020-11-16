@@ -1,6 +1,8 @@
 package cn.com.kxyt.controller;
 
+import cn.com.kxyt.entity.StandAddress;
 import cn.com.kxyt.entity.User;
+import cn.com.kxyt.mapper.StandAddressMapper;
 import cn.com.kxyt.mapper.UserMapper;
 import cn.com.kxyt.util.QRCodeUtil;
 import com.google.zxing.Result;
@@ -26,6 +28,9 @@ public class QRCodeController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
+    StandAddressMapper addressMapper;
+
+    @Autowired
     UserMapper userMapper;
 
     /**
@@ -43,12 +48,13 @@ public class QRCodeController {
      * 解析二维码
      */
     @GetMapping("/test/{id}")
-    public User analysiscode(@PathVariable String id) {
+    public StandAddress analysiscode(@PathVariable String id) {
         logger.info("开始解析二维码，ID为:"+id);
         Result result = QRCodeUtil.zxingCodeAnalyze("./qrcode/"+id+".jpg");
         String uid = result.toString().substring(result.toString().lastIndexOf("/")+1);
-        User user = userMapper.selectUserById(uid);
-        logger.info("ID为"+id+"解析的结果为："+user);
-        return user;
+        StandAddress standAddress = addressMapper.selectStandAddressById(Integer.valueOf(uid));
+        logger.info("ID为"+id+"解析的结果为："+standAddress);
+        return standAddress;
     }
+
 }

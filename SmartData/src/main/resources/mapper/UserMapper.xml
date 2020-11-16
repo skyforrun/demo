@@ -4,7 +4,6 @@
     <resultMap id="baseMap" type="cn.com.kxyt.entity.User">
         <id column="id" jdbcType="VARCHAR" property="id"></id>
         <result column="name" jdbcType="VARCHAR" property="name"></result>
-
     </resultMap>
 
     <select id="selectUserById" resultType="cn.com.kxyt.entity.User" parameterType="java.lang.String">

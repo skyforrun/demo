@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  * @date 2020/11/1316:59
  */
-@RequestMapping("/qrcode")
+@RequestMapping("/code")
 @RestController
 public class QRCodeController {
 
@@ -37,10 +37,11 @@ public class QRCodeController {
      * 生成二维码
      */
     @RequestMapping("/{id}")
-    public void productcode(@PathVariable String id) {
+    public String productcode(@PathVariable String id) {
         logger.info("开始生成二维码,id为:"+id);
-        QRCodeUtil.zxingCodeCreate("http://192.168.1.12/qrcode/test"+"/"+id, "./qrcode/"+id,500,null);
+        QRCodeUtil.zxingCodeCreate("http://192.168.1.245/code/test/"+id, "./qrcode/"+id,500,null);
         logger.info("生成二维码成功");
+        return "http://192.168.1.245/"+id+".jpg";
     }
 
 
@@ -51,6 +52,7 @@ public class QRCodeController {
     public StandAddress analysiscode(@PathVariable String id) {
         logger.info("开始解析二维码，ID为:"+id);
         Result result = QRCodeUtil.zxingCodeAnalyze("./qrcode/"+id+".jpg");
+        //取出地址栏的唯一参数ID
         String uid = result.toString().substring(result.toString().lastIndexOf("/")+1);
         StandAddress standAddress = addressMapper.selectStandAddressById(Integer.valueOf(uid));
         logger.info("ID为"+id+"解析的结果为："+standAddress);

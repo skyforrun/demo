@@ -1,18 +1,14 @@
 package cn.com.kxyt.controller;
 
 import cn.com.kxyt.entity.StandAddress;
-import cn.com.kxyt.entity.User;
 import cn.com.kxyt.mapper.StandAddressMapper;
-import cn.com.kxyt.mapper.UserMapper;
+import cn.com.kxyt.mapper2.UserMapper;
 import cn.com.kxyt.util.QRCodeUtil;
 import com.google.zxing.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zj
@@ -23,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/code")
 @RestController
+@CrossOrigin
 public class QRCodeController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -30,18 +27,15 @@ public class QRCodeController {
     @Autowired
     StandAddressMapper addressMapper;
 
-    @Autowired
-    UserMapper userMapper;
-
     /**
      * 生成二维码
      */
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public String productcode(@PathVariable String id) {
         logger.info("开始生成二维码,id为:"+id);
-        QRCodeUtil.zxingCodeCreate("http://192.168.1.245/code/test/"+id, "./qrcode/"+id,500,null);
+        QRCodeUtil.zxingCodeCreate("http://192.168.1.12/code/test/"+id, "./qrcode/"+id,500,null);
         logger.info("生成二维码成功");
-        return "http://192.168.1.245/"+id+".jpg";
+        return "http://192.168.1.12/"+id+".jpg";
     }
 
 

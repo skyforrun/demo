@@ -1,6 +1,7 @@
 package cn.com.kxyt.mapper;
 
 import cn.com.kxyt.entity.StandAddress;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author zj
@@ -9,9 +10,8 @@ import cn.com.kxyt.entity.StandAddress;
  * @Description:
  * @date 2020/11/169:09
  */
+
 public interface StandAddressMapper {
 
     StandAddress selectStandAddressById(Integer id);
-
-    StandAddress selectStandById(String id);
 }

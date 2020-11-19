@@ -21,6 +21,14 @@
         <result column="cno" jdbcType="VARCHAR" property="cno"></result>
     </resultMap>
 
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                id
+            </if>
+        </trim>
+    </sql>
+
     <select id="selectStandAddressById" resultType="cn.com.kxyt.entity.StandAddress" parameterType="java.lang.Integer">
          select * from "E_StandAddress_PT" WHERE id = #{id, jdbcType=INTEGER}
     </select>

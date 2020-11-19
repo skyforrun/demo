@@ -1,7 +1,6 @@
 package cn.com.kxyt.mapper;
 
 import cn.com.kxyt.entity.StandAddress;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author zj

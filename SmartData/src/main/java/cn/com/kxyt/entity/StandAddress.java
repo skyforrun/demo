@@ -23,6 +23,7 @@ public class StandAddress {
     private java.lang.String hunitno;
     private java.lang.String geom;
     private java.lang.String cno;
+    private String imageSrc;
 
     public Integer getId() {
         return id;
@@ -160,6 +161,14 @@ public class StandAddress {
         this.cno = cno;
     }
 
+    public String getImageSrc() {
+        return imageSrc;
+    }
+
+    public void setImageSrc(String imageSrc) {
+        this.imageSrc = imageSrc;
+    }
+
     @Override
     public String toString() {
         return "StandAddress{" +
@@ -180,6 +189,7 @@ public class StandAddress {
                 ", hunitno='" + hunitno + '\'' +
                 ", geom='" + geom + '\'' +
                 ", cno='" + cno + '\'' +
+                ", imageSrc='" + imageSrc + '\'' +
                 '}';
     }
 }

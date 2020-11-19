@@ -23,7 +23,6 @@ public class UserController {
     @RequestMapping("/{id}")
     @Transactional("dataSourceTransactionManager2")
     public User selectAll(@PathVariable String id){
-        System.out.println("进来了user？");
         User user = userMapper.selectUserWithId(id);
         System.out.println(user);
         return user;

@@ -17,7 +17,7 @@ public class MyMvcConfigAdapter implements WebMvcConfigurer {
          * 浏览器地址栏输入/
          * 即可访问qrcode文件夹
          */
-        registry.addResourceHandler("/**").addResourceLocations("file:qrcode/");
+        registry.addResourceHandler("/**").addResourceLocations("file:public/qrcode/");
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 }

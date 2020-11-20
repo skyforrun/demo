@@ -18,6 +18,17 @@ public class MyMvcConfigAdapter implements WebMvcConfigurer {
          * 即可访问qrcode文件夹
          */
         registry.addResourceHandler("/**").addResourceLocations("file:public/qrcode/");
+
+        /**
+         * swagger2报404
+         */
+        registry.addResourceHandler("/statics/**")
+                .addResourceLocations("classpath:/statics/");
+        registry.addResourceHandler("/swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 }

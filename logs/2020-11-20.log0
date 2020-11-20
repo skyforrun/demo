@@ -3015,3 +3015,85 @@ Verify the connector's configuration, identify and stop any process that's liste
 16:01:43.013 [https-jsse-nio-8088-exec-3] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
 16:01:43.022 [https-jsse-nio-8088-exec-3] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: 1(String)
 16:01:43.034 [https-jsse-nio-8088-exec-3] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 1
+16:09:50.951 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 1684 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+16:09:50.952 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+16:09:50.952 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+16:09:51.598 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$85f4aa40] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:09:51.812 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:09:51.812 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:09:51.812 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+16:09:51.829 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+16:09:51.836 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+16:09:51.843 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+16:09:51.848 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:09:51.848 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:09:51.902 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:09:51.903 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 929 ms
+16:09:52.347 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+16:09:52.439 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:09:52.572 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+16:09:52.582 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+16:09:52.603 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+16:09:52.688 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+16:09:53.118 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+16:09:53.122 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+16:09:53.124 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 2.51 seconds (JVM running for 3.175)
+16:09:59.407 [https-jsse-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:09:59.407 [https-jsse-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:09:59.413 [https-jsse-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+16:09:59.443 [https-jsse-nio-8088-exec-1] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+16:09:59.548 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+16:09:59.555 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: 1(String)
+16:09:59.566 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 1
+16:19:34.738 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 11672 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+16:19:34.739 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+16:19:34.740 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+16:19:35.400 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$85f798ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:19:35.615 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:19:35.615 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:19:35.615 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+16:19:35.631 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+16:19:35.639 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+16:19:35.646 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+16:19:35.652 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:19:35.652 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:19:35.717 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:19:35.717 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 954 ms
+16:19:36.157 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+16:19:36.249 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:19:36.385 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+16:19:36.395 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+16:19:36.417 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+16:19:36.512 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+16:19:36.923 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+16:19:36.928 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+16:19:36.930 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 2.41 seconds (JVM running for 2.892)
+16:19:37.057 [https-jsse-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:19:37.057 [https-jsse-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:19:37.062 [https-jsse-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+16:23:23.582 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 13116 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+16:23:23.584 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+16:23:23.584 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+16:23:24.297 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d17b8e8b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:23:24.513 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:23:24.514 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:23:24.514 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+16:23:24.530 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+16:23:24.539 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+16:23:24.546 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+16:23:24.552 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:23:24.552 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:23:24.615 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:23:24.615 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1007 ms
+16:23:25.058 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+16:23:25.154 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:23:25.300 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+16:23:25.309 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+16:23:25.330 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+16:23:25.414 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+16:23:25.832 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+16:23:25.836 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+16:23:25.838 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 2.472 seconds (JVM running for 2.955)
+16:23:29.283 [https-jsse-nio-8088-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:23:29.283 [https-jsse-nio-8088-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:23:29.288 [https-jsse-nio-8088-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms

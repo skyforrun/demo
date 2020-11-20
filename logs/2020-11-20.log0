@@ -2758,3 +2758,260 @@ Verify the connector's configuration, identify and stop any process that's liste
 13:55:31.190 [https-jsse-nio-8088-exec-2] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
 13:55:31.190 [https-jsse-nio-8088-exec-2] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: 46db14dcbbcc03f255(String)
 13:55:31.191 [https-jsse-nio-8088-exec-2] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 1
+15:16:18.395 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 4168 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:16:18.396 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:16:18.396 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:16:19.121 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:16:19.121 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:16:19.121 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:16:19.137 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:16:19.144 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:16:19.150 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:16:19.156 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:16:19.156 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:16:19.205 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:16:19.205 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 786 ms
+15:16:19.548 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:16:19.697 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:16:20.050 [main] ERROR o.apache.catalina.util.LifecycleBase - Failed to start component [Connector[HTTP/1.1-8088]]
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:227)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:263)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:195)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:296)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
+	at cn.com.kxyt.SmartDataApplication.main(SmartDataApplication.java:18)
+Caused by: java.lang.IllegalArgumentException: jsse.alias_no_key_entry
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:99)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.initialiseSsl(AbstractJsseEndpoint.java:71)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:218)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1124)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1210)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:585)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005)
+	... 14 common frames omitted
+Caused by: java.io.IOException: jsse.alias_no_key_entry
+	at org.apache.tomcat.util.net.SSLUtilBase.getKeyManagers(SSLUtilBase.java:325)
+	at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:247)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:97)
+	... 20 common frames omitted
+15:16:20.051 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:16:20.057 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["https-jsse-nio-8088"]
+15:16:20.058 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-80"]
+15:16:20.162 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+15:16:20.169 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-80"]
+15:16:20.172 [main] INFO  o.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+15:16:20.172 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["https-jsse-nio-8088"]
+15:16:20.172 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["https-jsse-nio-8088"]
+15:16:20.172 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-80"]
+15:16:20.174 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+15:16:20.176 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8088 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8088, or configure this application to listen on another port.
+
+15:16:20.178 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+15:16:20.178 [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-0} closing ...
+15:16:20.178 [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-0} closing ...
+15:16:55.923 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 16492 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:16:55.924 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:16:55.925 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:16:56.666 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:16:56.667 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:16:56.667 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:16:56.682 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:16:56.689 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:16:56.695 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:16:56.701 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:16:56.701 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:16:56.751 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:16:56.751 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 803 ms
+15:16:57.088 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:16:57.244 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:16:57.685 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:16:57.689 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+15:16:57.691 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 1.976 seconds (JVM running for 2.459)
+15:20:17.965 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 16184 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:20:17.966 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:20:17.967 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:20:18.681 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:20:18.681 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:20:18.682 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:20:18.697 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:20:18.704 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:20:18.711 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:20:18.715 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:20:18.717 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:20:18.765 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:20:18.766 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 778 ms
+15:20:19.109 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:20:19.268 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:20:19.700 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:20:19.704 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+15:20:19.706 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 1.956 seconds (JVM running for 2.459)
+15:23:34.532 [https-jsse-nio-8088-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:23:34.532 [https-jsse-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:23:34.537 [https-jsse-nio-8088-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+15:23:34.568 [https-jsse-nio-8088-exec-1] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:23:34.669 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:23:34.677 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "22"(String)
+15:23:34.686 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:26:49.790 [https-jsse-nio-8088-exec-8] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:26:49.790 [https-jsse-nio-8088-exec-8] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "22"(String)
+15:26:49.791 [https-jsse-nio-8088-exec-8] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:29:38.298 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 15492 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:29:38.299 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:29:38.300 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:29:39.122 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:29:39.122 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:29:39.122 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:29:39.138 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:29:39.146 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:29:39.152 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:29:39.157 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:29:39.157 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:29:39.206 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:29:39.207 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 877 ms
+15:29:39.545 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:29:39.701 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:29:40.135 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:29:40.140 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+15:29:40.142 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 2.051 seconds (JVM running for 2.546)
+15:29:44.431 [https-jsse-nio-8088-exec-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:29:44.431 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:29:44.436 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+15:30:23.880 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 16588 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:30:23.882 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:30:23.882 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:30:24.618 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:30:24.618 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:30:24.619 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:30:24.634 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:30:24.641 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:30:24.648 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:30:24.653 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:30:24.653 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:30:24.701 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:30:24.702 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 795 ms
+15:30:25.043 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:30:25.205 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:30:25.633 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:30:25.637 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+15:30:25.639 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 1.964 seconds (JVM running for 2.443)
+15:30:42.896 [https-jsse-nio-8088-exec-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:30:42.896 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:30:42.901 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+15:30:42.931 [https-jsse-nio-8088-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:30:42.987 [https-jsse-nio-8088-exec-6] INFO  c.com.kxyt.controller.UserController - 开始查询用户，id为"22"
+15:30:43.031 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:30:43.039 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "22"(String)
+15:30:43.050 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:30:58.540 [https-jsse-nio-8088-exec-7] INFO  c.com.kxyt.controller.UserController - 开始查询用户，id为"22"
+15:30:58.540 [https-jsse-nio-8088-exec-7] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:30:58.540 [https-jsse-nio-8088-exec-7] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "22"(String)
+15:30:58.541 [https-jsse-nio-8088-exec-7] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:36:07.258 [https-jsse-nio-8088-exec-10] INFO  c.com.kxyt.controller.UserController - 开始查询用户，id为22
+15:36:07.259 [https-jsse-nio-8088-exec-10] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:36:07.259 [https-jsse-nio-8088-exec-10] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: 22(String)
+15:36:07.260 [https-jsse-nio-8088-exec-10] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:42:12.987 [https-jsse-nio-8088-exec-1] INFO  c.com.kxyt.controller.UserController - 开始查询用户，id为"1"
+15:42:12.987 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:42:12.988 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "1"(String)
+15:42:12.988 [https-jsse-nio-8088-exec-1] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:42:52.808 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 5780 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:42:52.809 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:42:52.809 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:42:53.683 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:42:53.683 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:42:53.683 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:42:53.698 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:42:53.706 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:42:53.712 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:42:53.717 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:42:53.717 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:42:53.767 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:42:53.767 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 933 ms
+15:42:54.112 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:42:54.265 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:42:54.667 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:42:54.671 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+15:42:54.673 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 2.073 seconds (JVM running for 2.548)
+15:43:00.659 [https-jsse-nio-8088-exec-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:43:00.659 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:43:00.665 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+15:43:00.683 [https-jsse-nio-8088-exec-6] INFO  c.com.kxyt.controller.UserController - 开始查询用户，id为"1"
+15:43:00.704 [https-jsse-nio-8088-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:43:00.770 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:43:00.779 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "1"(String)
+15:43:00.788 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+15:43:28.366 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 10204 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+15:43:28.367 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+15:43:28.367 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+15:43:29.110 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:43:29.110 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+15:43:29.110 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+15:43:29.126 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+15:43:29.133 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+15:43:29.140 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+15:43:29.145 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:43:29.146 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:43:29.196 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:43:29.196 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 806 ms
+15:43:29.535 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:43:29.684 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+15:43:30.103 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+15:43:30.108 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+15:43:30.109 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 1.954 seconds (JVM running for 2.42)
+15:45:02.836 [https-jsse-nio-8088-exec-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:45:02.836 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:45:02.841 [https-jsse-nio-8088-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+15:45:02.871 [https-jsse-nio-8088-exec-6] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:45:02.931 [https-jsse-nio-8088-exec-6] INFO  c.com.kxyt.controller.UserController - 开始查询用户，id为"1"
+15:45:02.972 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+15:45:02.980 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: "1"(String)
+15:45:02.989 [https-jsse-nio-8088-exec-6] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 0
+16:01:38.909 [main] INFO  cn.com.kxyt.SmartDataApplication - Starting SmartDataApplication on kxyt103 with PID 10768 (E:\idea-projects\JavaDemo\SmartData\target\classes started by kxyt in E:\idea-projects\JavaDemo)
+16:01:38.911 [main] DEBUG cn.com.kxyt.SmartDataApplication - Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+16:01:38.911 [main] INFO  cn.com.kxyt.SmartDataApplication - No active profile set, falling back to default profiles: default
+16:01:39.702 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:01:39.702 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Code archive: E:\mavenRepository\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar
+16:01:39.702 [main] DEBUG cn.com.kxyt.config.HttpsConfig$1 - Document root: E:\idea-projects\JavaDemo\public
+16:01:39.718 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8088 (https) 80 (http)
+16:01:39.727 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["https-jsse-nio-8088"]
+16:01:39.734 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+16:01:39.739 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:01:39.740 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:01:39.789 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:01:39.789 [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 853 ms
+16:01:40.131 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:01:40.291 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["https-jsse-nio-8088"]
+16:01:40.712 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+16:01:40.716 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8088 (https) 80 (http) with context path ''
+16:01:40.718 [main] INFO  cn.com.kxyt.SmartDataApplication - Started SmartDataApplication in 2.046 seconds (JVM running for 2.515)
+16:01:42.872 [https-jsse-nio-8088-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:01:42.872 [https-jsse-nio-8088-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:01:42.877 [https-jsse-nio-8088-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+16:01:42.908 [https-jsse-nio-8088-exec-3] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+16:01:43.013 [https-jsse-nio-8088-exec-3] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==>  Preparing: select * from "U_User" WHERE id = ? 
+16:01:43.022 [https-jsse-nio-8088-exec-3] DEBUG c.c.k.m.UserMapper.selectUserWithId - ==> Parameters: 1(String)
+16:01:43.034 [https-jsse-nio-8088-exec-3] DEBUG c.c.k.m.UserMapper.selectUserWithId - <==      Total: 1

@@ -1,7 +1,6 @@
 package cn.com.kxyt.mapper2;
 
 import cn.com.kxyt.entity.User;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author zj
@@ -13,4 +12,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 public interface UserMapper {
     User selectUserWithId(String id);
+
+    User insertUser(User user);
+
+    int deleteUser(String id);
+
+    User updateUser(User user);
 }

@@ -3,12 +3,12 @@ package cn.com.kxyt.util;
 import java.io.*;
 
 /**
-    * @Title:
-    * @Package
-    * @Description:
-    * @author zj
-    * @date 2020/11/1815:07
-    */
+* @Title:
+* @Package
+* @Description:
+* @author zj
+* @date 2020/11/1815:07
+*/
 public class JsonFileUtil {
     //读取json文件
     public static String readJsonFile(String fileName) {

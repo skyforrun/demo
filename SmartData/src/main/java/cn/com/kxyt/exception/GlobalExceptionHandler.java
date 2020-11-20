@@ -1,12 +1,14 @@
 package cn.com.kxyt.exception;
 
-import cn.com.kxyt.core.ResoponseMessage;
+import cn.com.kxyt.core.ResuleCode;
 import cn.com.kxyt.core.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * 处理自定义的业务异常
@@ -28,7 +30,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Result bizExceptionHandler(TipException e){
         logger.error("发生业务异常！原因是：{}",e.getErrorMsg());
-        return ResoponseMessage.genFailResult(e.getErrorMsg());
+        return Result.error(e.getErrorCode(),e.getErrorMsg());
     }
 
     /**
@@ -40,7 +42,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Result exceptionHandler(NullPointerException e){
         logger.error("发生空指针异常！原因是:",e);
-        return ResoponseMessage.genNotFoundResult();
+        return Result.error(ResuleCode.FAIL);
     }
 
 
@@ -53,6 +55,6 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Result exceptionHandler(Exception e){
         logger.error("未知异常！原因是:",e);
-        return ResoponseMessage.genServerErrorResult();
+        return Result.error(ResuleCode.INTERNAL_SERVER_ERROR);
     }
 }

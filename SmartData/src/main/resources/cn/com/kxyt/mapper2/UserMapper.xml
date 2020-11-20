@@ -6,6 +6,40 @@
         <result column="name" jdbcType="VARCHAR" property="name"></result>
     </resultMap>
 
+    <insert id="insertUser" parameterType="cn.com.kxyt.entity.User">
+        insert into "U_User"
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                id,
+            </if>
+            <if test="name != null" >
+                name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null" >
+                #{name,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.lang.String">
+        delete from "U_User" WHERE id = #{id, jdbcType=VARCHAR}
+    </delete>
+
+    <update id="updateUser" parameterType="cn.com.kxyt.entity.User">
+        update "U_User"
+        <set >
+            <if test="name != null" >
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
     <select id="selectUserWithId" resultType="cn.com.kxyt.entity.User" parameterType="java.lang.String">
          select * from "U_User" WHERE id = #{id, jdbcType=VARCHAR}
     </select>

@@ -1,5 +1,10 @@
 server:
-  port: 80
+  ssl:
+    key-store: classpath:server.psf
+    key-store-type: jks
+    key-store-password: 123456
+  port: 8088
+#    key-alias: server
 spring:
   datasource:
     username: postgres

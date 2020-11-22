@@ -16,6 +16,11 @@ spring:
     password: post@123
     url: jdbc:postgresql://192.168.1.245:5432/pg_3Dscene
     driver-class-name: org.postgresql.Driver
+  datasource3:
+    username: root
+    password: 7495
+    url: jdbc:mysql://127.0.0.1:3306/mybatis?serverTimezone=UTC&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   level:
    cn.com.kxyt: debug

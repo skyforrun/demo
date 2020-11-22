@@ -93,4 +93,37 @@ public class MybatisConfig {
             return new DataSourceTransactionManager(dataSource);
         }
     }
+
+    @Configuration
+    @MapperScan(basePackages = "cn.com.kxyt.mapper3", sqlSessionTemplateRef = "sqlSessionTemplate3")
+    public static class Db3 {
+
+        @Bean
+        public SqlSessionFactory sqlSessionFactory3(@Qualifier("dataSource3") DataSource dataSource) throws Exception {
+            SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+            //配置分页插件，详情请查阅官方文档
+            PageHelper pageHelper = new PageHelper();
+            Properties properties = new Properties();
+            properties.setProperty("pageSizeZero", "true");//分页尺寸为0时查询所有纪录不再执行分页
+            properties.setProperty("reasonable", "true");//页码<=0 查询第一页，页码>=总页数查询最后一页
+            properties.setProperty("supportMethodsArguments", "true");//支持通过 Mapper 接口参数来传递分页参数
+            pageHelper.setProperties(properties);
+
+            //添加插件
+            factoryBean.setPlugins(new Interceptor[]{pageHelper});
+            factoryBean.setDataSource(dataSource);
+            //factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResource("classpath:cn.com.kxyt/mapper2/*.xml"));
+            return factoryBean.getObject();
+        }
+
+        @Bean
+        public SqlSessionTemplate sqlSessionTemplate3(@Qualifier("sqlSessionFactory3") SqlSessionFactory sqlSessionFactory) throws Exception {
+            return new SqlSessionTemplate(sqlSessionFactory);
+        }
+
+        @Bean
+        public DataSourceTransactionManager dataSourceTransactionManager3(@Qualifier("dataSource3") DataSource dataSource) {
+            return new DataSourceTransactionManager(dataSource);
+        }
+    }
 }

@@ -38,7 +38,7 @@ public class LogAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         // 记录下请求内容
-        logger.info("请求的URL为 : " + request.getRequestURL().toString() + ",请求的IP为 : " + IPutil.getIpAddrByRequest(request) + ",请求的方法为 : " + joinPoint.getSignature().getDeclaringTypeName() + "请求的参数为：" + joinPoint.getSignature().getName() + ",ARGS : " + Arrays.toString(joinPoint.getArgs()));
+        logger.info("请求的URL为 : " + request.getRequestURL().toString() + ",请求的IP为 : " + IPutil.getIpAddrByRequest(request) + ",请求的类为 : " + joinPoint.getSignature().getDeclaringTypeName() + "，请求的方法为：" + joinPoint.getSignature().getName() + ",方法的参数为: " + Arrays.toString(joinPoint.getArgs()));
     }
 
     @AfterReturning(returning = "object", pointcut = "webLog()")

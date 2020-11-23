@@ -32,8 +32,8 @@ public class StudentController {
     @Transactional(value = "dataSourceTransactionManager3",rollbackFor = TipException.class)
     @ApiOperation(value="增加学生",notes="sid必须为数字")
     @ApiImplicitParams({
-            @ApiImplicitParam(name="sid",value="学生id",required=true,paramType="form",dataType="Integer"),
-            @ApiImplicitParam(name="sname",value="学生名字",required=true,paramType="form")
+            @ApiImplicitParam(name="sid",value="学生id",required=true,dataType="Integer"),
+            @ApiImplicitParam(name="sname",value="学生名字",required=true)
     })
     @ApiResponses({
             @ApiResponse(code=400,message="请求参数没填好"),
@@ -46,7 +46,7 @@ public class StudentController {
         if (i>0){
             logger.info("插入学生成功，学生的信息为："+student);
         }else {
-            logger.info("插入学生失败");
+            logger.error("插入学生失败");
         }
 
     }
@@ -55,7 +55,7 @@ public class StudentController {
     @Transactional(value = "dataSourceTransactionManager3",rollbackFor = TipException.class)
     @ApiOperation(value="删除学生",notes="sid必须为数字")
     @ApiImplicitParams({
-            @ApiImplicitParam(name="sid",value="学生id",required=true,paramType="form",dataType="Integer")
+            @ApiImplicitParam(name="sid",value="学生id",required=true,dataType="Integer")
     })
     @ApiResponses({
             @ApiResponse(code=400,message="请求参数没填好"),
@@ -66,7 +66,7 @@ public class StudentController {
         if (i>0){
             logger.info("删除学生成功");
         }else {
-            logger.info("删除学生失败");
+            logger.error("删除学生失败");
         }
 
     }
@@ -75,8 +75,8 @@ public class StudentController {
     @Transactional(value = "dataSourceTransactionManager3",rollbackFor = TipException.class)
     @ApiOperation(value="修改学生信息",notes="sid必须为数字")
     @ApiImplicitParams({
-            @ApiImplicitParam(name="sid",value="学生id",required=true,paramType="form",dataType="Integer"),
-            @ApiImplicitParam(name="sname",value="学生名字",required=true,paramType="form")
+            @ApiImplicitParam(name="sid",value="学生id",required=true,dataType="Integer"),
+            @ApiImplicitParam(name="sname",value="学生名字",required=true)
     })
     @ApiResponses({
             @ApiResponse(code=400,message="请求参数没填好"),
@@ -89,7 +89,7 @@ public class StudentController {
         if (i>0){
             logger.info("修改学生成功，学生的信息为："+student);
         }else {
-            logger.info("修改学生失败");
+            logger.error("修改学生失败");
         }
 
     }
@@ -97,19 +97,19 @@ public class StudentController {
     @GetMapping
     @Transactional(value = "dataSourceTransactionManager3",rollbackFor = TipException.class)
     @ApiOperation(value="查询学生",notes="sid必须为数字")
-   /* @ApiImplicitParams({
-            @ApiImplicitParam(name="sid",value="学生id",required=true,paramType="form",dataType="Integer")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="sid",value="学生id",required=true,dataType="Integer")
     })
     @ApiResponses({
             @ApiResponse(code=400,message="请求参数没填好"),
             @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
-    })*/
+    })
     public Student queryStudent(@RequestParam(value = "sid") Integer sid){
         Student student = studentMapeer.queryStudent(sid);
         if (null!=student){
             logger.info("查询学生成功，学生的信息为："+student);
         }else {
-            logger.info("查询学生失败");
+            logger.error("查询学生失败");
         }
         return student;
     }

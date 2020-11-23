@@ -1,5 +1,7 @@
 package cn.com.kxyt.controller;
 
+import cn.com.kxyt.core.ResuleCode;
+import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.User;
 import cn.com.kxyt.mapper2.UserMapper;
 import io.swagger.annotations.*;
@@ -34,13 +36,15 @@ public class UserController {
             @ApiResponse(code=400,message="请求参数没填好"),
             @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
     })
-    public User selectAll(@PathVariable String id){
+    public Result selectAll(@PathVariable String id){
         User user = userMapper.selectUserWithId(id);
         if (null!=user){
             logger.info("查询成功，结果为："+user);
+            return Result.success(user);
         }else {
             logger.error("查询失败，请检查输入的id是否存在");
+            return Result.error(ResuleCode.FAIL);
         }
-        return user;
+
     }
 }

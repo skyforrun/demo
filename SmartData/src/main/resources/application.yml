@@ -1,10 +1,13 @@
 server:
   ssl:
+    # 证书位置
     key-store: classpath:server.psf
+    # 证书加密方式
     key-store-type: jks
+    # 证书加密面膜
     key-store-password: 123456
 #    key-alias: server
-  port: 8088
+  port: 443
 spring:
   datasource:
     username: postgres
@@ -21,6 +24,27 @@ spring:
     password: 7495
     url: jdbc:mysql://127.0.0.1:3306/mybatis?serverTimezone=UTC&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: 33.99.140.108
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    # 连接超时时间（毫秒）
+    timeout:
+      lettuce:
+        pool:
+          # 连接池最大连接数（使用负值表示没有限制）
+          max-active: 8
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1
+          # 连接池中的最大空闲连接
+          max-idle: 8
+          # 连接池中的最小空闲连接
+          min-idle: 0
 logging:
   level:
    cn.com.kxyt: debug

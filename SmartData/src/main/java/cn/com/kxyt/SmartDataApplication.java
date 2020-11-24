@@ -16,7 +16,7 @@ public class SmartDataApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SmartDataApplication.class, args);
-        System.out.println("项目启动成功，请访问:localhost/swagger-ui.html");
+        System.out.println("项目启动成功，请访问:http://localhost/swagger-ui.html");
     }
 
 }

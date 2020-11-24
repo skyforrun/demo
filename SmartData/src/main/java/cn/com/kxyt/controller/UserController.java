@@ -1,9 +1,12 @@
 package cn.com.kxyt.controller;
 
+import cn.com.kxyt.annotation.AutoIdempotent;
 import cn.com.kxyt.core.ResuleCode;
 import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.User;
+import cn.com.kxyt.exception.TipException;
 import cn.com.kxyt.mapper2.UserMapper;
+import cn.com.kxyt.service.TokenService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +29,18 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    TokenService tokenService;
+
+    @PostMapping("/createToken")
+    public Result createToken(){
+        String token = tokenService.createToken();
+        logger.info("生成的token为："+token);
+        return Result.success(token);
+    }
+
     @GetMapping("/{id}")
-    @Transactional("dataSourceTransactionManager2")
+    @Transactional(value = "dataSourceTransactionManager2",rollbackFor = TipException.class)
     @ApiOperation(value="查询用户",notes="id为用户id")
     @ApiImplicitParams({
             @ApiImplicitParam(name="id",value="用户id",required=true)
@@ -36,6 +49,7 @@ public class UserController {
             @ApiResponse(code=400,message="请求参数没填好"),
             @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
     })
+    @AutoIdempotent
     public Result selectAll(@PathVariable String id){
         User user = userMapper.selectUserWithId(id);
         if (null!=user){

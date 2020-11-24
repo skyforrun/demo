@@ -45,7 +45,7 @@ public class HttpsConfig {
         connector.setPort(80);
         connector.setSecure(false);
         //监听到http的端口号后转向到的https的端口号
-        connector.setRedirectPort(8088);
+        connector.setRedirectPort(443);
         return connector;
     }
 }

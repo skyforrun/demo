@@ -1,6 +1,8 @@
 package cn.com.kxyt.controller;
 
-import cn.com.kxyt.annotation.AutoIdempotent;
+import cn.com.kxyt.annotation.ExtApiIdempotent;
+import cn.com.kxyt.config.RedisToken;
+import cn.com.kxyt.core.Constant;
 import cn.com.kxyt.core.ResuleCode;
 import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.User;
@@ -30,13 +32,13 @@ public class UserController {
     UserMapper userMapper;
 
     @Autowired
-    TokenService tokenService;
+    RedisToken redisToken;
 
     @PostMapping("/createToken")
-    public Result createToken(){
-        String token = tokenService.createToken();
+    public String createToken(){
+        String token = redisToken.getToken();
         logger.info("生成的token为："+token);
-        return Result.success(token);
+        return token;
     }
 
     @GetMapping("/{id}")
@@ -49,7 +51,7 @@ public class UserController {
             @ApiResponse(code=400,message="请求参数没填好"),
             @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
     })
-    @AutoIdempotent
+    @ExtApiIdempotent(Constant.EXTAPIFROM)
     public Result selectAll(@PathVariable String id){
         User user = userMapper.selectUserWithId(id);
         if (null!=user){

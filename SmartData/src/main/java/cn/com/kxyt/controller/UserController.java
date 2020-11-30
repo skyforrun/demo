@@ -8,7 +8,6 @@ import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.User;
 import cn.com.kxyt.exception.TipException;
 import cn.com.kxyt.mapper2.UserMapper;
-import cn.com.kxyt.service.TokenService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

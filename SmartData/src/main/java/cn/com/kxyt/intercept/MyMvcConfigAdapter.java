@@ -14,9 +14,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MyMvcConfigAdapter implements WebMvcConfigurer {
 
-    @Autowired
-    AutoInterceptor autoInterceptor;
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         /**
@@ -38,9 +35,4 @@ public class MyMvcConfigAdapter implements WebMvcConfigurer {
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(autoInterceptor);
-        WebMvcConfigurer.super.addInterceptors(registry);
-    }
 }

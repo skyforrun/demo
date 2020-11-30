@@ -1,5 +1,7 @@
 package cn.com.kxyt.controller;
 
+import cn.com.kxyt.annotation.ExtApiIdempotent;
+import cn.com.kxyt.core.Constant;
 import cn.com.kxyt.entity.StandAddress;
 import cn.com.kxyt.mapper.StandAddressMapper;
 import cn.com.kxyt.util.QRCodeUtil;
@@ -41,6 +43,7 @@ public class QRCodeController {
             @ApiResponse(code=400,message="请求参数没填好"),
             @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
     })
+    @ExtApiIdempotent(Constant.EXTAPIFROM)
     public StandAddress productcode(@PathVariable String id) {
         logger.info("开始生成二维码,id为:"+id);
         QRCodeUtil.zxingCodeCreate("http://192.168.1.12/code/test/"+id, "./public/qrcode/"+id,500,null);

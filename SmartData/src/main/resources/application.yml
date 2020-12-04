@@ -22,8 +22,11 @@ spring:
   datasource3:
     username: root
     password: 7495
-    url: jdbc:mysql://127.0.0.1:3306/mybatis?serverTimezone=UTC&characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+  elasticsearch:
+    rest:
+      uris: localhost:9200
   redis:
     # Redis数据库索引（默认为0）
     database: 0

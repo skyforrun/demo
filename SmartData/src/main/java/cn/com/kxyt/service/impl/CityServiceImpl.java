@@ -3,6 +3,7 @@ package cn.com.kxyt.service.impl;
 import cn.com.kxyt.entity.City;
 import cn.com.kxyt.entity.CityExample;
 import cn.com.kxyt.mapper3.CityMapper;
+import cn.com.kxyt.repository.EsCityRepository;
 import cn.com.kxyt.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
@@ -20,7 +21,7 @@ public class CityServiceImpl implements CityService {
     private CityMapper cityMapper;
 
     @Autowired
-    private ElasticsearchRepository cityRepository;
+    private EsCityRepository esCityRepository;
 
     @Autowired
     private ElasticsearchRestTemplate cityRestTemplate;
@@ -29,7 +30,7 @@ public class CityServiceImpl implements CityService {
     public int importAll() {
         CityExample cityExample = new CityExample();
         List<City> cities = cityMapper.selectByExample(cityExample);
-        Iterable iterable = cityRepository.saveAll(cities);
+        Iterable iterable = esCityRepository.saveAll(cities);
         Iterator<City> iterator = iterable.iterator();
         int result = 0;
         while (iterator.hasNext()) {

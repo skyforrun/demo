@@ -3,6 +3,9 @@ package cn.com.kxyt.controller;
 import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.City;
 import cn.com.kxyt.entity.CityExample;
+import cn.com.kxyt.exception.GlobalExceptionHandler;
+import cn.com.kxyt.exception.TipException;
+import cn.com.kxyt.exception.ViewExceptionHandler;
 import cn.com.kxyt.mapper3.CityMapper;
 import cn.com.kxyt.service.CityService;
 import io.swagger.annotations.Api;
@@ -10,6 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -43,56 +47,70 @@ public class CityController {
     }
 
     @ApiOperation(value = "分页查询")
-    @PostMapping(value = "/pageingSearch")
+    @GetMapping(value = "/pageingSearch")
     public Result pageingSearch(){
         Page<City> cities = cityService.pageingSearch(1, 10);
         return Result.success(cities);
     }
 
     @ApiOperation(value = "排序查询")
-    @PostMapping(value = "/sortQueryq")
-    public Result sortQueryq(){
-        Iterable<City> cities = cityService.sortQueryq();
+    @GetMapping(value = "/sortQueryq")
+    public Result sortQueryq() throws Exception {
+        Iterable<City> cities;
+        try {
+            int i = 6/0;
+            cities = cityService.sortQueryq();
+        }catch (Exception e){
+            //return GlobalExceptionHandler.ExceptionHandler(e,"排序查询失败");
+            throw new Exception(e);
+        }
+
         return Result.success(cities);
     }
 
     @ApiOperation(value = "精准查询")
-    @PostMapping(value = "/termQuery")
+    @GetMapping(value = "/termQuery")
     public Result termQuery(){
         List<City> cities = cityService.termQuery();
+        System.out.println(cities);
         return Result.success(cities);
     }
 
     @ApiOperation(value = "匹配查询")
-    @PostMapping(value = "/matchQuery")
-    public Result matchQuery(){
+    @GetMapping(value = "/matchQuery")
+    public Result matchQuery(String name){
         List<City> cities = cityService.matchQuery();
         return Result.success(cities);
     }
 
     @ApiOperation(value = "范围查询")
-    @PostMapping(value = "/rangeQuery")
-    public Result rangeQuery(){
-        List<City> cities = cityService.rangeQuery();
-        return Result.success(cities);
+    @GetMapping(value = "/rangeQuery")
+    public ModelAndView rangeQuery(){
+        try {
+            int i = 5/0;
+            cityService.rangeQuery();
+        }catch (Exception e){
+            return ViewExceptionHandler.handleRRException(e);
+        }
+        return null;
     }
 
     @ApiOperation(value = "布尔查询，暂不可用")
-    @PostMapping(value = "/boolQuery")
+    @GetMapping(value = "/boolQuery")
     public Result boolQuery(){
         List<City> cities = cityService.boolQuery();
         return Result.success(cities);
     }
 
     @ApiOperation(value = "多条件范围查询，暂不可用")
-    @PostMapping(value = "/sortQuery")
+    @GetMapping(value = "/sortQuery")
     public Result sortQuery(){
         List<City> cities = cityService.sortQuery();
         return Result.success(cities);
     }
 
     @ApiOperation(value = "模糊查询")
-    @PostMapping(value = "/fuzzyQuery")
+    @GetMapping(value = "/fuzzyQuery")
     public Result fuzzyQuery(){
         List<City> cities = cityService.fuzzyQuery();
         return Result.success(cities);

@@ -55,7 +55,7 @@ public class LogAspect {
             String value = apiOperation.value();
             String notes = apiOperation.notes();
             // 记录下请求内容
-            logger.info("注意事项为：" + notes + "，操作为：" + value + "，请求的URL为：" + request.getRequestURL().toString() + ",请求的IP为 : " + IPutil.getIpAddrByRequest(request) + ",请求的类为 : " + joinPoint.getSignature().getDeclaringTypeName() + "，请求的方法为：" + joinPoint.getSignature().getName() + ",方法的参数为: " + Arrays.toString(joinPoint.getArgs()));
+            logger.info("操作时间为："+startTime+",注意事项为：" + notes + "，操作为：" + value + "，请求的URL为：" + request.getRequestURL().toString() + ",请求的IP为 : " + IPutil.getIpAddrByRequest(request) + ",请求的类为 : " + joinPoint.getSignature().getDeclaringTypeName() + "，请求的方法为：" + joinPoint.getSignature().getName() + ",方法的参数为: " + Arrays.toString(joinPoint.getArgs()));
         }
     }
 

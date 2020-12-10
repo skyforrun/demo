@@ -40,3 +40,13 @@ spring:
 logging:
   level:
    cn.com.kxyt: debug
+xxl:
+  job:
+    admin:
+      addresses: http://39.99.140.108:8080/xxl-job-admin
+    executor:
+      ip:
+      port: 9998
+      logpath: /data/xxl-job/jobhandler
+      appname: plat-job
+    accessToken:

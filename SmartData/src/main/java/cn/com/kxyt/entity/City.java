@@ -11,7 +11,7 @@ public class City {
     private static final long serialVersionUID = -1L;
 
     @Id
-    private Integer id;
+    private Long id;
 
     @Field(analyzer = "ik_max_word",type = FieldType.Text)
     private String name;
@@ -22,13 +22,14 @@ public class City {
     @Field(analyzer = "ik_max_word",type = FieldType.Text)
     private String district;
 
+    @Field(type = FieldType.Integer)
     private Integer population;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,5 +74,13 @@ public class City {
                 ", district='" + district + '\'' +
                 ", population=" + population +
                 '}';
+    }
+
+    public City(Long id, String name, String countrycode, String district, Integer population) {
+        this.id = id;
+        this.name = name;
+        this.countrycode = countrycode;
+        this.district = district;
+        this.population = population;
     }
 }

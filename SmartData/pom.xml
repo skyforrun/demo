@@ -22,6 +22,12 @@
 
 	<dependencies>
 
+		<!--引入kafka依赖-->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
 		<!-- xxl-rpc-core -->
 		<dependency>
 			<groupId>com.xuxueli</groupId>

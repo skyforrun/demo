@@ -32,6 +32,7 @@ spring:
     password: 7495
     url: jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+  #ES相关配置
   elasticsearch:
     rest:
       uris: localhost:9200
@@ -45,6 +46,20 @@ spring:
     # Redis服务器连接密码（默认为空）
     password:
     timeout: 10000
+  kafka:
+    bootstrap-servers: 33.99.140.108:9060,33.99.140.108:9061,33.99.140.108:9062
+    consumer:
+      group-id: 0
+      #key-value序列化与反序列化
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #每个批次发送消息的数量
+      batch-size: 65536
+      #缓冲区大小
+      buffer-memory: 524288
 logging:
   level:
    cn.com.kxyt: debug

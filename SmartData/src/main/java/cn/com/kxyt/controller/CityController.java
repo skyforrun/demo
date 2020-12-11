@@ -61,8 +61,8 @@ public class CityController {
             int i = 6/0;
             cities = cityService.sortQueryq();
         }catch (Exception e){
-            //return GlobalExceptionHandler.ExceptionHandler(e,"排序查询失败");
-            throw new Exception(e);
+            return GlobalExceptionHandler.ExceptionHandler(e,"排序查询失败");
+            //throw new Exception(e);
         }
 
         return Result.success(cities);

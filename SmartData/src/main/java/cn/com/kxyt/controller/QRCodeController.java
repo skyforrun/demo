@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/code")
 @RestController
-@CrossOrigin
 @Api(value = "二维码生成器接口",tags = "传入id生成二维码")
 public class QRCodeController {
 

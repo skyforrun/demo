@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
+@Configuration
 public class XxlJobConfig {
     @Value("${xxl.job.admin.addresses}")
     private String adminAddresses;
@@ -25,7 +25,8 @@ public class XxlJobConfig {
     @Value("${xxl.job.executor.logpath}")
     private String logPath;
 
-    private int logRetentionDays=-1;
+    @Value("${xxl.job.executor.log-retention-days}")
+    private int logRetentionDays;
 
     @Bean(initMethod = "start", destroyMethod = "destroy")
     public XxlJobSpringExecutor xxlJobExecutor() {

@@ -22,11 +22,17 @@
 
 	<dependencies>
 
-		<!--引入kafka依赖-->
 		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.4.5</version>
+		</dependency>
+
+		<!--引入kafka依赖-->
+		<!--<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<!-- xxl-rpc-core -->
 		<dependency>

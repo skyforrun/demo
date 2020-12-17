@@ -2,7 +2,7 @@ package cn.com.kxyt.aspect;
 
 import cn.com.kxyt.annotation.ExtApiIdempotent;
 import cn.com.kxyt.annotation.ExtApiToken;
-import cn.com.kxyt.config.RedisToken;
+import cn.com.kxyt.redis.RedisToken;
 import cn.com.kxyt.core.Constant;
 import cn.com.kxyt.core.Result;
 import org.apache.commons.lang.StringUtils;

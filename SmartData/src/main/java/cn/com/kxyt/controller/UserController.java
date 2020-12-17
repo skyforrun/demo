@@ -1,7 +1,7 @@
 package cn.com.kxyt.controller;
 
 import cn.com.kxyt.annotation.ExtApiIdempotent;
-import cn.com.kxyt.config.RedisToken;
+import cn.com.kxyt.redis.RedisToken;
 import cn.com.kxyt.core.Constant;
 import cn.com.kxyt.core.ResuleCode;
 import cn.com.kxyt.core.Result;

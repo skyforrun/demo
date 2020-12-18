@@ -8,6 +8,7 @@ import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.User;
 import cn.com.kxyt.exception.TipException;
 import cn.com.kxyt.mapper2.UserMapper;
+import cn.com.kxyt.util.RedisUtil;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,9 @@ public class UserController {
     @Autowired
     RedisToken redisToken;
 
+    @Autowired
+    RedisUtil redisUtil;
+
     @PostMapping("/createToken")
     public String createToken(){
         String token = redisToken.getToken();
@@ -53,6 +57,7 @@ public class UserController {
     @ExtApiIdempotent(Constant.EXTAPIFROM)
     public Result selectAll(@PathVariable String id){
         User user = userMapper.selectUserWithId(id);
+        redisUtil.set(user.getId(),user);
         if (null!=user){
             logger.info("查询成功，结果为："+user);
             return Result.success(user);

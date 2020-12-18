@@ -11,4 +11,9 @@ public class Constant {
      * from 中提交的请求
      */
     public static final String EXTAPIFROM = "from";
+
+    /**
+     * session保存的key
+     */
+    public static String SESSION_KEY = "key:session:token";
 }

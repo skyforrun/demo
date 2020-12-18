@@ -36,6 +36,24 @@ spring:
   elasticsearch:
     rest:
       uris: localhost:9200
+  #邮箱相关配置
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 1262345715@qq.com
+    password: umczfrwliutkjbcb
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+  #spring session配置，实现session共享，重启程序session不失效
+  session:
+    store-type: redis
+    redis:
+      flush-mode: immediate
+      namespace: "spring:session"
   #redis相关配置
   redis:
     # Redis数据库索引（默认为0）

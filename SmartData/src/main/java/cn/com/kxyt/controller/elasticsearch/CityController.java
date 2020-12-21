@@ -1,12 +1,9 @@
-package cn.com.kxyt.controller;
+package cn.com.kxyt.controller.elasticsearch;
 
 import cn.com.kxyt.core.Result;
-import cn.com.kxyt.entity.City;
-import cn.com.kxyt.entity.CityExample;
+import cn.com.kxyt.entity.elasticsearch.City;
 import cn.com.kxyt.exception.GlobalExceptionHandler;
-import cn.com.kxyt.exception.TipException;
 import cn.com.kxyt.exception.ViewExceptionHandler;
-import cn.com.kxyt.mapper3.CityMapper;
 import cn.com.kxyt.service.CityService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

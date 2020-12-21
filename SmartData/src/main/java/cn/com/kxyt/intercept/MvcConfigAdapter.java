@@ -44,7 +44,18 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
         InterceptorRegistration sessionInterceptorRegistry = registry.addInterceptor(sessionIntercept);
         // 排除不需要拦截的路径
         sessionInterceptorRegistry.excludePathPatterns("/page/login")
-                .excludePathPatterns("/page/doLogin").excludePathPatterns("/error");
+                .excludePathPatterns("/page/doLogin").excludePathPatterns("/error")
+                .excludePathPatterns("/code/**").excludePathPatterns("/city/**")
+                .excludePathPatterns("/oss/**").excludePathPatterns("/xxljob/**")
+                .excludePathPatterns("/swagger-ui.html").excludePathPatterns( "/user/login",            //登录
+                "/**/*.html",            //html静态资源
+                "/**/*.js",              //js静态资源
+                "/**/*.css",             //css静态资源
+                "/**/*.woff",
+                "/**/*.ttf",
+                "/webjars/**",
+                "/v2/**",
+                "/swagger-resources/**");
         // 需要拦截的路径
         sessionInterceptorRegistry.addPathPatterns("/**");
     }

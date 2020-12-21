@@ -1,4 +1,4 @@
-package cn.com.kxyt.controller;
+package cn.com.kxyt.controller.springsession;
 
 import cn.com.kxyt.core.Constant;
 import cn.hutool.core.util.IdUtil;

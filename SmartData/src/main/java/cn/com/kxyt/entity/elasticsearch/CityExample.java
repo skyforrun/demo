@@ -1,4 +1,4 @@
-package cn.com.kxyt.entity;
+package cn.com.kxyt.entity.elasticsearch;
 
 import java.util.ArrayList;
 import java.util.List;

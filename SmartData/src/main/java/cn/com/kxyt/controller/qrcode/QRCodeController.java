@@ -1,7 +1,5 @@
-package cn.com.kxyt.controller;
+package cn.com.kxyt.controller.qrcode;
 
-import cn.com.kxyt.annotation.ExtApiIdempotent;
-import cn.com.kxyt.core.Constant;
 import cn.com.kxyt.entity.StandAddress;
 import cn.com.kxyt.mapper.StandAddressMapper;
 import cn.com.kxyt.util.QRCodeUtil;
@@ -10,7 +8,10 @@ import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 /**

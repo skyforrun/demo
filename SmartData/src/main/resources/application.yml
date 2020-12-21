@@ -1,3 +1,24 @@
+# OSS相关配置信息
+aliyun:
+  oss:
+    # oss对外服务的访问域名
+    endpoint: oss-cn-beijing.aliyuncs.com
+    # 访问身份验证中用到用户标识
+    accessKeyId: LTAI4G62eKydaSv41EkqVgDf
+    # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
+    accessKeySecret: kM4IWaltfpPQ2uR3d8OcFqu1bdfaSy
+    # oss的存储空间
+    bucketName: skyforrun-oss
+    policy:
+      # 签名有效期(S)
+      expire: 300
+    # 上传文件大小(M)
+    maxSize: 10
+    # 文件上传成功后的回调地址
+    callback: http://localhost/aliyun/oss/callback
+    dir:
+      # 上传文件夹路径前缀
+      prefix: test/images/
 server:
   ssl:
     # 证书位置

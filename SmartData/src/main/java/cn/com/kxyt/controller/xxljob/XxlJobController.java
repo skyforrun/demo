@@ -1,4 +1,4 @@
-package cn.com.kxyt.controller;
+package cn.com.kxyt.controller.xxljob;
 
 
 import cn.hutool.http.HttpResponse;

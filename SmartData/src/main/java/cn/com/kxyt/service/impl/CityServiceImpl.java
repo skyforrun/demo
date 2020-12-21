@@ -1,7 +1,7 @@
 package cn.com.kxyt.service.impl;
 
-import cn.com.kxyt.entity.City;
-import cn.com.kxyt.entity.CityExample;
+import cn.com.kxyt.entity.elasticsearch.City;
+import cn.com.kxyt.entity.elasticsearch.CityExample;
 import cn.com.kxyt.mapper3.CityMapper;
 import cn.com.kxyt.repository.EsCityRepository;
 import cn.com.kxyt.service.CityService;

@@ -1,7 +1,7 @@
 package cn.com.kxyt.mapper3;
 
-import cn.com.kxyt.entity.City;
-import cn.com.kxyt.entity.CityExample;
+import cn.com.kxyt.entity.elasticsearch.City;
+import cn.com.kxyt.entity.elasticsearch.CityExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

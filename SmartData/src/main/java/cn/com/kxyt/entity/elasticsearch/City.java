@@ -1,4 +1,4 @@
-package cn.com.kxyt.entity;
+package cn.com.kxyt.entity.elasticsearch;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;

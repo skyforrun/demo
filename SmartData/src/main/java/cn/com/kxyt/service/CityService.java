@@ -1,6 +1,6 @@
 package cn.com.kxyt.service;
 
-import cn.com.kxyt.entity.City;
+import cn.com.kxyt.entity.elasticsearch.City;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

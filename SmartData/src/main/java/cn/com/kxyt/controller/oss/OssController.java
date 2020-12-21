@@ -8,6 +8,8 @@ import cn.com.kxyt.exception.GlobalExceptionHandler;
 import cn.com.kxyt.service.OssService;
 import com.aliyun.oss.model.OSSObjectSummary;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -62,23 +64,32 @@ public class OssController {
 
     @ApiOperation("bucket文件列表")
     @PostMapping("/list")
-    public Result bucketList(){
-        List<OSSObjectSummary> list = ossService.list();
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="bucketName",value="bucket文件名称",defaultValue = "skyforrun-oss")
+    })
+    public Result bucketList(String bucketName){
+        List<OSSObjectSummary> list = ossService.list(bucketName);
         return Result.success(list);
     }
 
     @ApiOperation("删除文件")
     @PostMapping("/delete")
-    public Result deleteFile(String fileName){
-        FileUploadResult delete = ossService.delete(fileName);
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="key",value="删除文件的key")
+    })
+    public Result deleteFile(String key){
+        FileUploadResult delete = ossService.delete(key);
         return Result.success(delete);
     }
 
     @ApiOperation("下载文件")
     @PostMapping("/download")
-    public Result downloadFile(OutputStream os,String fileName) throws IOException {
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="key",value="下载文件的key")
+    })
+    public Result downloadFile(OutputStream os,String key) throws IOException {
         try {
-            ossService.exportOssFile(os,fileName);
+            ossService.exportOssFile(os,key);
         }catch (Exception e){
             return GlobalExceptionHandler.ExceptionHandler(e,"下载失败");
         }

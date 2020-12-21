@@ -42,6 +42,11 @@ public class OssServiceImpl implements OssService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     *   设置最大个数
+     */
+    final int maxKeys = 200;
+
     @Value("${aliyun.oss.policy.expire}")
     private int ALIYUN_OSS_EXPIRE;
 
@@ -177,17 +182,20 @@ public class OssServiceImpl implements OssService {
 
     /**
      * @description:  查看文件列表
-     * @param null
+     * @param bucketName bucket文件夹名称
      * @return:
      * @author: zj
      * @time: 2020/12/21 14:07
      */
     @Override
-    public List<OSSObjectSummary> list() {
-        // 设置最大个数。
-        final int maxKeys = 200;
-        // 列举文件。
-        ObjectListing objectListing = ossClient.listObjects(new ListObjectsRequest(ALIYUN_OSS_BUCKET_NAME).withMaxKeys(maxKeys));
+    public List<OSSObjectSummary> list(String bucketName) {
+        ObjectListing objectListing;
+        // 列举文件
+        if (null==bucketName){
+            objectListing = ossClient.listObjects(new ListObjectsRequest(ALIYUN_OSS_BUCKET_NAME).withMaxKeys(maxKeys));
+        }else {
+            objectListing = ossClient.listObjects(new ListObjectsRequest(bucketName).withMaxKeys(maxKeys));
+        }
         List<OSSObjectSummary> sums = objectListing.getObjectSummaries();
         return sums;
     }

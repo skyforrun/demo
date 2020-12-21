@@ -37,7 +37,7 @@ public interface OssService {
      * 查看文件列表
      * @return
      */
-    List<OSSObjectSummary> list();
+    List<OSSObjectSummary> list(String bucketName);
 
     /**
      * 删除文件

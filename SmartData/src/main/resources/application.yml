@@ -18,7 +18,7 @@ aliyun:
     callback: http://localhost/aliyun/oss/callback
     dir:
       # 上传文件夹路径前缀
-      prefix: test/images/
+      prefix: test/
 server:
   ssl:
     # 证书位置

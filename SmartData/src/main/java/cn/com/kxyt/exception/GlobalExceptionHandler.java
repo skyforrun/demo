@@ -1,11 +1,13 @@
 package cn.com.kxyt.exception;
 
-import cn.com.kxyt.core.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author zj
@@ -22,14 +24,34 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(value = TipException.class)
-    @ResponseBody
-    public static Result ExceptionHandler(Exception e,String msg){
-        if (e instanceof TipException) {
-            msg = e.getMessage();
-        } else {
-            logger.error(msg, e);
+    @ExceptionHandler
+    public static Object handleException(Exception e, HttpServletRequest request,String message) throws Exception {
+        //获取拦截器判断的返回结果类型
+        Object o = request.getAttribute("method_return_is_view");
+        if (o == null) {
+            logger.error("", e);
+            throw e;
         }
-        return Result.error(msg);
+        //是否是html/text
+        boolean isView = (Boolean) o;
+
+        //返回页面
+        if (isView) {
+            //配置需要跳转的Controller方法
+            ModelAndView modelAndView = new ModelAndView("error");
+            request.setAttribute("code", "-1");
+            request.setAttribute("msg", e.getMessage());
+            request.setAttribute("message", message);
+            request.setAttribute("stackTrace", e.getStackTrace());
+            return modelAndView;
+        } else {
+            //返回json
+            ModelAndView  modelAndView = new ModelAndView(new MappingJackson2JsonView());
+            modelAndView.addObject("code", "500");
+            modelAndView.addObject("message", e.getMessage());
+            modelAndView.addObject("data", message);
+            //modelAndView.addObject("cause", e.getStackTrace());
+            return modelAndView;
+        }
     }
 }

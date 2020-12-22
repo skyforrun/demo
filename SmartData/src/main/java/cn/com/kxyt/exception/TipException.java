@@ -1,7 +1,5 @@
 package cn.com.kxyt.exception;
 
-import cn.com.kxyt.core.ResuleCode;
-
 /**
  * @author zj
  * @Description: 自定义异常

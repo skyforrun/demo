@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 
@@ -87,11 +86,11 @@ public class OssController {
     @ApiImplicitParams({
             @ApiImplicitParam(name="key",value="下载文件的key")
     })
-    public Result downloadFile(OutputStream os,String key) throws IOException {
+    public Object downloadFile(OutputStream os,String key,HttpServletRequest request) throws Exception {
         try {
             ossService.exportOssFile(os,key);
         }catch (Exception e){
-            return GlobalExceptionHandler.ExceptionHandler(e,"下载失败");
+            return GlobalExceptionHandler.handleException(e,request,"下载出错");
         }
         return Result.success();
     }

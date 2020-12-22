@@ -2,7 +2,6 @@ package cn.com.kxyt.intercept;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -17,6 +16,9 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
 
     @Autowired
     SessionIntercept sessionIntercept;
+
+    @Autowired
+    ExceptionHandleInterceptor exceptionHandleInterceptor;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -41,9 +43,7 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        InterceptorRegistration sessionInterceptorRegistry = registry.addInterceptor(sessionIntercept);
-        // 排除不需要拦截的路径
-        sessionInterceptorRegistry.excludePathPatterns("/page/login")
+        registry.addInterceptor(sessionIntercept).addPathPatterns("/**").excludePathPatterns("/page/login")
                 .excludePathPatterns("/page/doLogin").excludePathPatterns("/error")
                 .excludePathPatterns("/code/**").excludePathPatterns("/city/**")
                 .excludePathPatterns("/oss/**").excludePathPatterns("/xxljob/**")
@@ -56,7 +56,7 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
                 "/webjars/**",
                 "/v2/**",
                 "/swagger-resources/**");
-        // 需要拦截的路径
-        sessionInterceptorRegistry.addPathPatterns("/**");
+        registry.addInterceptor(exceptionHandleInterceptor).addPathPatterns("/**");
+
     }
 }

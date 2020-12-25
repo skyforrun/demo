@@ -40,7 +40,7 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
         //springboot访问静态资源
         registry.addResourceHandler("/**").addResourceLocations("classpath:/META-INF/resources/")
                 .addResourceLocations("classpath:/resources/").addResourceLocations("classpath:/static/")
-                .addResourceLocations("classpath:/public/");
+                .addResourceLocations("classpath:/public/").addResourceLocations("classpath:/templates/");
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 

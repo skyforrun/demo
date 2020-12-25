@@ -1,5 +1,6 @@
 package cn.com.kxyt.controller.springsecurity;
 
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/demo")
+@Api(value = "springsecurity测试",tags = "springsecurity测试")
 public class LoginController {
 
     @RequestMapping("/showLogin")

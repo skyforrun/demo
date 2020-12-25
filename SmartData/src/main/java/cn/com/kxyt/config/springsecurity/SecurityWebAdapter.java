@@ -55,7 +55,7 @@ public class SecurityWebAdapter extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated();  //认证
 
         //关闭csrf
-        //http.csrf().disable();
+        http.csrf().disable();
     }
 
     /**

@@ -1,5 +1,6 @@
 package cn.com.kxyt.controller.springsecurity;
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/admin")
+@Api(value = "springsecurity测试",tags = "springsecurity测试")
 public class AdminController {
 
     @GetMapping("/demo")

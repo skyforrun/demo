@@ -3,6 +3,7 @@ package cn.com.kxyt.controller.springsession;
 import cn.com.kxyt.core.Constant;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/page")
+@Api(value = "spring session测试",tags = "spring session重启不失效测试")
 public class SessionPageController {
     /**
      * 跳转到 首页

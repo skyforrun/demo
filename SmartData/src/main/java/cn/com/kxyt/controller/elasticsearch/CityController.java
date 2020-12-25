@@ -19,7 +19,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/city")
-@Api(value = "mysql-->ES测试")
+@Api(value = "mysql-->ES测试",tags = "elasticsearch api相关测试")
 public class CityController {
 
     @Autowired

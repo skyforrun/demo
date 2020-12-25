@@ -3,8 +3,6 @@ package cn.com.kxyt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-
 /**
  * @author zj
  * @Description: springboot主启动类

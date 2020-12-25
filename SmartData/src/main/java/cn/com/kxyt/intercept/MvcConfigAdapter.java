@@ -26,18 +26,21 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
          * 浏览器地址栏输入/
          * 即可访问qrcode文件夹
          */
-        registry.addResourceHandler("/**").addResourceLocations("file:public/qrcode/");
+        registry.addResourceHandler("/**").addResourceLocations("file:./public/qrcode/");
 
         /**
          * swagger2报404
          */
-        registry.addResourceHandler("/statics/**")
-                .addResourceLocations("classpath:/statics/");
+        registry.addResourceHandler("/statics/**").addResourceLocations("classpath:/statics/");
         registry.addResourceHandler("/swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
+        //springboot访问静态资源
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/META-INF/resources/")
+                .addResourceLocations("classpath:/resources/").addResourceLocations("classpath:/static/")
+                .addResourceLocations("classpath:/public/");
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
@@ -47,7 +50,10 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
                 .excludePathPatterns("/page/doLogin").excludePathPatterns("/error")
                 .excludePathPatterns("/code/**").excludePathPatterns("/city/**")
                 .excludePathPatterns("/oss/**").excludePathPatterns("/xxljob/**")
-                .excludePathPatterns("/swagger-ui.html").excludePathPatterns( "/user/login",            //登录
+                .excludePathPatterns("/admin/**").excludePathPatterns("/demo/**")
+                .excludePathPatterns("/login")
+                .excludePathPatterns("/swagger-ui.html").excludePathPatterns(
+                "/user/login",            //登录
                 "/**/*.html",            //html静态资源
                 "/**/*.js",              //js静态资源
                 "/**/*.css",             //css静态资源
@@ -56,7 +62,7 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
                 "/webjars/**",
                 "/v2/**",
                 "/swagger-resources/**");
-        registry.addInterceptor(exceptionHandleInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(exceptionHandleInterceptor).addPathPatterns("/**").excludePathPatterns("/demo/**");
 
     }
 }

@@ -3,7 +3,10 @@ package cn.com.kxyt.aspect;
 import cn.com.kxyt.util.IPutil;
 import io.swagger.annotations.ApiOperation;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +15,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * description: 接口日志aop
@@ -49,8 +50,8 @@ public class LogAspect {
         //方法上注解
 
         ApiOperation apiOperation = method.getAnnotation(ApiOperation.class);
-        if (Objects.isNull(apiOperation)){
-
+        if (null == apiOperation){
+            logger.info("操作时间为："+startTime+"，请求的URL为：" + request.getRequestURL().toString() + ",请求的IP为 : " + IPutil.getIpAddrByRequest(request) + ",请求的类为 : " + joinPoint.getSignature().getDeclaringTypeName() + "，请求的方法为：" + joinPoint.getSignature().getName() + ",方法的参数为: " + Arrays.toString(joinPoint.getArgs()));
         }else {
             String value = apiOperation.value();
             String notes = apiOperation.notes();

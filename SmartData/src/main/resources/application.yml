@@ -43,15 +43,15 @@ spring:
     password: post@123
     url: jdbc:postgresql://192.168.1.245:5432/pg_byne
     driver-class-name: org.postgresql.Driver
-  datasource2:
-    username: postgres
-    password: post@123
-    url: jdbc:postgresql://192.168.1.245:5432/pg_3Dscene
-    driver-class-name: org.postgresql.Driver
   datasource3:
     username: root
     password: 7495
     url: jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource4:
+    username: root
+    password: 7495
+    url: jdbc:mysql://127.0.0.1:3306/springsecurity?serverTimezone=UTC&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   #ES相关配置
   elasticsearch:
@@ -113,6 +113,7 @@ spring:
 logging:
   level:
    cn.com.kxyt: debug
+#   org.springframework.security: trace
 xxl:
   job:
     admin:

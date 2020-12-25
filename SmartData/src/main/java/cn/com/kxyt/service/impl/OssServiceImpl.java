@@ -1,6 +1,6 @@
 package cn.com.kxyt.service.impl;
 
-import cn.com.kxyt.config.OssConfig;
+import cn.com.kxyt.config.oss.OssConfig;
 import cn.com.kxyt.entity.oss.FileUploadResult;
 import cn.com.kxyt.entity.oss.OssCallbackParam;
 import cn.com.kxyt.entity.oss.OssCallbackResult;

@@ -2,10 +2,14 @@ package cn.com.kxyt.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.scripting.support.ResourceScriptSource;
 
 /**
  * @description: Redis配置类
@@ -35,6 +39,19 @@ public class RedisConfig {
 
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
+    }
+
+    /**
+     * lua脚本
+     * @return
+     */
+    @Bean
+    @SuppressWarnings("unchecked")
+    public RedisScript<Long> limitRedisScript() {
+        DefaultRedisScript redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("redis/limit.lua")));
+        redisScript.setResultType(Long.class);
+        return redisScript;
     }
 
 }

@@ -1,4 +1,4 @@
-package cn.com.kxyt.aspect;
+package cn.com.kxyt.aspect.log;
 
 import cn.com.kxyt.util.IPutil;
 import io.swagger.annotations.ApiOperation;

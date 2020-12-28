@@ -1,4 +1,4 @@
-package cn.com.kxyt.aspect;
+package cn.com.kxyt.aspect.idempotent;
 
 import cn.com.kxyt.annotation.ExtApiIdempotent;
 import cn.com.kxyt.annotation.ExtApiToken;

@@ -24,12 +24,12 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler
-    public static Object handleException(Exception e, HttpServletRequest request,String message) throws Exception {
+    @ExceptionHandler(value = TipException.class)
+    public static Object handleException(Exception e, HttpServletRequest request) throws Exception {
         //获取拦截器判断的返回结果类型
-        Object o = request.getAttribute("method_return_is_view");
+        Object o = request.getAttribute("view");
         if (o == null) {
-            logger.error("", e);
+            logger.error("发生了异常", e);
             throw e;
         }
         //是否是html/text
@@ -41,7 +41,6 @@ public class GlobalExceptionHandler {
             ModelAndView modelAndView = new ModelAndView("error");
             request.setAttribute("code", "-1");
             request.setAttribute("msg", e.getMessage());
-            request.setAttribute("message", message);
             request.setAttribute("stackTrace", e.getStackTrace());
             return modelAndView;
         } else {
@@ -49,7 +48,6 @@ public class GlobalExceptionHandler {
             ModelAndView  modelAndView = new ModelAndView(new MappingJackson2JsonView());
             modelAndView.addObject("code", "500");
             modelAndView.addObject("message", e.getMessage());
-            modelAndView.addObject("data", message);
             //modelAndView.addObject("cause", e.getStackTrace());
             return modelAndView;
         }

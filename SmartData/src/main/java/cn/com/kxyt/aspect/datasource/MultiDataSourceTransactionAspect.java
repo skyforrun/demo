@@ -1,4 +1,4 @@
-package cn.com.kxyt.aspect;
+package cn.com.kxyt.aspect.datasource;
 
 /**
  * @author zj

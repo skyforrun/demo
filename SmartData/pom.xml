@@ -212,12 +212,6 @@
 			<version>2.9.2</version>
 		</dependency>
 
-		<!--thymeleaf springsecurity5 依赖-->
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
-		</dependency>
-
 		<!-- thymeleaf模板引擎 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

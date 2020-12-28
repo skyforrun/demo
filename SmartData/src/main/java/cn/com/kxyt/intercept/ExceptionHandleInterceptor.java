@@ -30,7 +30,7 @@ public class ExceptionHandleInterceptor implements HandlerInterceptor {
         //Controller方法是否使用@ResponseBody注解
         boolean b2 = method.isAnnotationPresent(ResponseBody.class);
         boolean flags = b1 || b2;
-        request.setAttribute("method_return_is_view",flags);
+        request.setAttribute("view",flags);
 
         return true;
     }

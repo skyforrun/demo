@@ -8,7 +8,6 @@
 <h1>出错啦！！！！</h1>
 <h2 th:text=" '状态码：' + ${code}"/>
 <h2 th:text=" '错误信息：' + ${msg}"/>
-<h2 th:text=" '手动错误原因为：' + ${message}"/>
 <a th:href="@{'https://www.google.com/webhp?hl=zh-CN#safe=strict&hl=zh-CN&q='+${msg}}"
    class="btn btn-primary btn-lg" target="_blank" id="Google">Google</a>
 <a th:href="@{'https://www.baidu.com/s?wd='+${msg}}" class="btn btn-info btn-lg"  target="_blank" id="Baidu">Baidu</a>

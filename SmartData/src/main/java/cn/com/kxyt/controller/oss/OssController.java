@@ -1,5 +1,6 @@
 package cn.com.kxyt.controller.oss;
 
+import cn.com.kxyt.annotation.RateLimiter;
 import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.oss.FileUploadResult;
 import cn.com.kxyt.entity.oss.OssCallbackResult;
@@ -41,9 +42,16 @@ public class OssController {
 
     @ApiOperation(value = "oss上传签名生成")
     @RequestMapping(value = "/policy", method = RequestMethod.GET)
-    public Result<OssPolicyResult> policy() {
-        OssPolicyResult result = ossService.policy();
-        return Result.success(result);
+    @RateLimiter(value = 3)
+    @ResponseBody
+    public Object policy(HttpServletRequest request) throws Exception {
+        OssPolicyResult result;
+        try {
+            result = ossService.policy();
+        }catch (Exception e){
+            return GlobalExceptionHandler.handleException(e,request);
+        }
+        return result;
     }
 
     @ApiOperation(value = "oss上传成功回调")
@@ -87,11 +95,7 @@ public class OssController {
             @ApiImplicitParam(name="key",value="下载文件的key")
     })
     public Object downloadFile(OutputStream os,String key,HttpServletRequest request) throws Exception {
-        try {
-            ossService.exportOssFile(os,key);
-        }catch (Exception e){
-            return GlobalExceptionHandler.handleException(e,request,"下载出错");
-        }
+        ossService.exportOssFile(os,key);
         return Result.success();
     }
 }

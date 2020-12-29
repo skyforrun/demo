@@ -5,7 +5,6 @@ import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.oss.FileUploadResult;
 import cn.com.kxyt.entity.oss.OssCallbackResult;
 import cn.com.kxyt.entity.oss.OssPolicyResult;
-import cn.com.kxyt.exception.GlobalExceptionHandler;
 import cn.com.kxyt.service.OssService;
 import com.aliyun.oss.model.OSSObjectSummary;
 import io.swagger.annotations.Api;
@@ -44,13 +43,8 @@ public class OssController {
     @RequestMapping(value = "/policy", method = RequestMethod.GET)
     @RateLimiter(value = 3)
     @ResponseBody
-    public Object policy(HttpServletRequest request) throws Exception {
-        OssPolicyResult result;
-        try {
-            result = ossService.policy();
-        }catch (Exception e){
-            return GlobalExceptionHandler.handleException(e,request);
-        }
+    public Object policy(){
+        OssPolicyResult result = ossService.policy();
         return result;
     }
 

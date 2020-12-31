@@ -95,3 +95,11 @@ insert into `tb_role_permission`(`id`,`role_id`,`permission_id`) values
 (45,37,46),
 (46,37,47),
 (47,37,48);
+
+create table persistent_
+logins (
+username varchar(64) not null,
+series varchar(64) primary key,
+token varchar(64) not null,
+last_used timestamp not null
+)

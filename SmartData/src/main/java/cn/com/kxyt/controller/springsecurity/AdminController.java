@@ -26,7 +26,7 @@ public class AdminController {
 
     @GetMapping("/index")
     public String index() {
-        return "index";
+        return "index"+getUsername();
     }
 
     /**

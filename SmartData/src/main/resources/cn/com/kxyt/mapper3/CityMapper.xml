@@ -148,7 +148,10 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+    <select id="selectAllWithRange" resultType="cn.com.kxyt.entity.elasticsearch.City" parameterType="java.util.Map">
+       SELECT * FROM city LIMIT #{offset},#{pagesize}
+    </select>
+    <update id="updateByExampleSelective" parameterType="map" >
     update city
     <set >
       <if test="record.id != null" >

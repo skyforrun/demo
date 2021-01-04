@@ -21,9 +21,9 @@ import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -40,6 +40,8 @@ public class CityServiceImpl implements CityService {
 
     @Autowired
     private ElasticsearchRestTemplate cityRestTemplate;
+
+
 
     /**
      * 将数据库的数据导入到ES中
@@ -221,6 +223,28 @@ public class CityServiceImpl implements CityService {
         SearchHits<City> pages = cityRestTemplate.search(searchQuery,City.class);
         List<City> searchList = pages.stream().map(SearchHit::getContent).collect(Collectors.toList());
         return searchList;
+    }
+
+    @Override
+    @Transactional("dataSourceTransactionManager3")
+    public List<City> queryWithRange(Map<String, Integer> map) {
+        int pageindex = 1;
+        int pagesize = 500;
+        boolean lookup = true;
+        List<City> allHistoryList = new ArrayList<>();
+        List<City> historyList;
+        Map<String, Integer> params = new HashMap<>();
+        params.put("pagesize", pagesize);
+        while (lookup) {
+            params.put("offset", (pageindex-1)*pagesize);
+            historyList = cityMapper.selectAllWithRange(params);
+            pageindex++;
+            allHistoryList.addAll(historyList);
+            if (historyList.size() < 500) {
+                lookup = false;
+            }
+        }
+       return allHistoryList;
     }
 
 }

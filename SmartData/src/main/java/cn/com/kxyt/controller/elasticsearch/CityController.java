@@ -2,26 +2,46 @@ package cn.com.kxyt.controller.elasticsearch;
 
 import cn.com.kxyt.core.Result;
 import cn.com.kxyt.entity.elasticsearch.City;
+import cn.com.kxyt.exception.TipException;
 import cn.com.kxyt.service.CityService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/city")
 @Api(value = "mysql-->ES测试",tags = "elasticsearch api相关测试")
 public class CityController {
 
     @Autowired
     private CityService cityService;
+
+    @ApiOperation(value = "导入所有数据库中商品到ES")
+    @GetMapping(value = "/queryWithRange")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="pagesize",value="哪一页开始，默认第一页",defaultValue = "0"),
+            @ApiImplicitParam(name="offset",value="展示的数据量，默认10",defaultValue = "500")
+    })
+    public Result queryWithRange(Integer pagesize,Integer offset){
+        Map<String, Integer> map = new HashMap<>(2);
+        map.put("pagesize",pagesize);
+        map.put("offset",offset);
+        List<City> cities = cityService.queryWithRange(map);
+        if (cities==null){
+            throw new TipException("dsad");
+        }
+        return Result.success(cities);
+    }
+
 
     @ApiOperation(value = "导入所有数据库中商品到ES")
     @PostMapping(value = "/importAll")

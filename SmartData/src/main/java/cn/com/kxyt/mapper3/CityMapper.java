@@ -3,6 +3,8 @@ package cn.com.kxyt.mapper3;
 import cn.com.kxyt.entity.elasticsearch.City;
 import cn.com.kxyt.entity.elasticsearch.CityExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface CityMapper {
@@ -27,4 +29,6 @@ public interface CityMapper {
     int updateByPrimaryKeySelective(City record);
 
     int updateByPrimaryKey(City record);
+
+    List<City> selectAllWithRange(Map<String, Integer> map);
 }

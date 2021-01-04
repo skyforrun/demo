@@ -4,6 +4,7 @@ import cn.com.kxyt.entity.elasticsearch.City;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CityService {
 
@@ -30,4 +31,6 @@ public interface CityService {
     List<City> sortQuery();
 
     List<City> fuzzyQuery();
+
+    List<City> queryWithRange(Map<String,Integer> map);
 }

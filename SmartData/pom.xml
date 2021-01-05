@@ -243,7 +243,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<!-- main 入口 -->
-					<mainClass>cn.com.kxyt.SmartDataApplication</mainClass>
+					<mainClass>com.hgnu.study.SmartDataApplication</mainClass>
 					<!-- 设置为ZIP，此模式下spring-boot-maven-plugin会将Manifest.MF文件中的Main-Class设置为org.springframework.boot.loader.PropertiesLauncher -->
 					<layout>ZIP</layout>
 					<!-- 需要包含的jar包 -->

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnu.study.mapper3.StudentMapeer">
+    <resultMap id="baseMap" type="com.hgnu.study.entity.Student">
+        <id column="sid" jdbcType="INTEGER" property="sid"></id>
+        <result column="sname" jdbcType="VARCHAR" property="sname"></result>
+    </resultMap>
+
+    <insert id="insertStudent">
+        insert into student
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="sid != null" >
+                sid,
+            </if>
+            <if test="sname != null" >
+                sname,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="sid != null" >
+                #{sid,jdbcType=INTEGER},
+            </if>
+            <if test="sname != null" >
+                #{sname,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteStudent" parameterType="java.lang.Integer">
+        delete from student WHERE sid = #{sid, jdbcType=INTEGER}
+    </delete>
+
+    <update id="updateStudent" parameterType="com.hgnu.study.entity.Student">
+        update student
+        <set >
+            <if test="sname != null" >
+                sname = #{sname,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where sid = #{sid,jdbcType=INTEGER}
+    </update>
+
+    <select id="queryStudent" resultType="com.hgnu.study.entity.Student" parameterType="java.lang.Integer">
+         select * from student WHERE sid = #{sid, jdbcType=INTEGER}
+    </select>
+
+
+</mapper>

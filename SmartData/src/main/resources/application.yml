@@ -112,7 +112,7 @@ spring:
       buffer-memory: 524288
 logging:
   level:
-   cn.com.kxyt: debug
+   com.hgnu.study: debug
  #  org.springframework.security: trace
 xxl:
   job:

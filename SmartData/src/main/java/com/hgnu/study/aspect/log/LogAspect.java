@@ -33,7 +33,7 @@ public class LogAspect {
     long startTime ;
     long endTime;
 
-    @Pointcut("execution(public * cn.com.kxyt.controller..*.*(..))")
+    @Pointcut("execution(public * com.hgnu.study.controller..*.*(..))")
     public void webLog() {
     }
 

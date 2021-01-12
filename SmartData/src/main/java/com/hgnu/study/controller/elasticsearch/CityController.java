@@ -1,20 +1,27 @@
 package com.hgnu.study.controller.elasticsearch;
 
+import com.hgnu.study.config.threadpool.ThreadPoolConfig;
 import com.hgnu.study.core.Result;
 import com.hgnu.study.entity.elasticsearch.City;
 import com.hgnu.study.exception.TipException;
 import com.hgnu.study.service.CityService;
+import com.hgnu.study.thread.CityServiceThread;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @RestController
 @RequestMapping("/city")
@@ -24,21 +31,27 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
+    @Autowired
+    @Qualifier("cachedThreadPool")
+    private ExecutorService executorService;
+
+    @Autowired
+    private CityServiceThread cityServiceThread;
+
     @ApiOperation(value = "导入所有数据库中商品到ES")
     @GetMapping(value = "/queryWithRange")
     @ApiImplicitParams({
             @ApiImplicitParam(name="pagesize",value="查多少条",defaultValue = "500"),
             @ApiImplicitParam(name="offset",value="那一页开始",defaultValue = "1")
     })
-    public Result queryWithRange(Integer pagesize,Integer offset){
-        Map<String, Integer> map = new HashMap<>(2);
-        map.put("pagesize",pagesize);
-        map.put("offset",offset);
+    public Result queryWithRange(Integer pagesize,Integer offset) throws ExecutionException, InterruptedException {
+       /*
         List<City> cities = cityService.queryWithRange(pagesize,offset);
         if (cities==null){
             throw new TipException("dsad");
-        }
-        return Result.success(cities);
+        }*/
+        Future submit = executorService.submit(cityServiceThread);
+        return Result.success(submit.get());
     }
 
 

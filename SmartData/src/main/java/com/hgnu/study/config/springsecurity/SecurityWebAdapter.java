@@ -68,7 +68,7 @@ public class SecurityWebAdapter extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // 不用认证
                 .antMatchers("/page/**", "/error","/code/**","/city/**","/oss/**","/xxljob/**","/admin/**","/demo/showLogin",
-                        "/swagger-ui.html","/**/*.html","/**/*.js","/**/*.css","/**/*.woff","/demo/toerror",
+                        "/swagger-ui.html","/**/*.html","/**/*.js","/**/*.css","/**/*.woff","/demo/toerror","/doctor/**",
                         "/**/*.ttf","/webjars/**","/v2/**","/swagger-resources/**","/user/login","/login").permitAll()
                 .anyRequest().authenticated();  //认证
 

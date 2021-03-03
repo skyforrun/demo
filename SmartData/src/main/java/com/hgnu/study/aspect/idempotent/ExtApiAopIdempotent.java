@@ -27,7 +27,7 @@ public class ExtApiAopIdempotent {
     private RedisToken redisToken;
 
     // 1.使用AOP环绕通知拦截所有访问（controller）
-    @Pointcut("execution(public * cn.com.kxyt.controller.*.*(..))")
+    @Pointcut("execution(public * com.hgnu.study.controller.*.*(..))")
     public void rlAop() {
 
     }

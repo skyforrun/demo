@@ -43,6 +43,11 @@ spring:
     password: post@123
     url: jdbc:postgresql://192.168.1.245:5432/pg_byne
     driver-class-name: org.postgresql.Driver
+  datasource2:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.0.220:3306/yyc_cms_dev?serverTimezone=UTC&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource3:
     username: root
     password: 7495
@@ -76,26 +81,26 @@ spring:
       flush-mode: immediate
       namespace: "spring:session"
   #redis相关配置
-  redis:
-    # Redis数据库索引（默认为0）
-    database: 0
-    # Redis服务器地址
-    host: 39.99.140.108
-    # Redis服务器连接端口
-    port: 6379
-    # Redis服务器连接密码（默认为空）
-    password:
-    timeout: 10000
-    lettuce:
-      pool:
-        # 连接池最大连接数（使用负值表示没有限制） 默认 8
-        max-active: 8
-        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
-        max-wait: -1
-        # 连接池中的最大空闲连接 默认 8
-        max-idle: 8
-        # 连接池中的最小空闲连接 默认 0
-        min-idle: 0
+#  redis:
+#    # Redis数据库索引（默认为0）
+#    database: 0
+#    # Redis服务器地址
+#    host: 39.99.140.108
+#    # Redis服务器连接端口
+#    port: 6379
+#    # Redis服务器连接密码（默认为空）
+#    password:
+#    timeout: 10000
+#    lettuce:
+#      pool:
+#        # 连接池最大连接数（使用负值表示没有限制） 默认 8
+#        max-active: 8
+#        # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+#        max-wait: -1
+#        # 连接池中的最大空闲连接 默认 8
+#        max-idle: 8
+#        # 连接池中的最小空闲连接 默认 0
+#        min-idle: 0
   kafka:
     bootstrap-servers: 33.99.140.108:9060,33.99.140.108:9061,33.99.140.108:9062
     consumer:
@@ -132,3 +137,7 @@ xxl:
       log-retention-days: -1
     # 执行器通讯TOKEN [选填]：非空时启用；
     accessToken:
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

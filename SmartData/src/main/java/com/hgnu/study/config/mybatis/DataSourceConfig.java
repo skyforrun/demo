@@ -24,6 +24,14 @@ public class DataSourceConfig {
     }
 
     @Bean
+    public DruidDataSource dataSource2(@Value("${spring.datasource2.username}") String username,
+                                       @Value("${spring.datasource2.password}") String password,
+                                       @Value("${spring.datasource2.url}") String url,
+                                       @Value("${spring.datasource2.driver-class-name}") String driverClassName) {
+        return createDataSource(username, password, url, driverClassName);
+    }
+
+    @Bean
     public DruidDataSource dataSource3(@Value("${spring.datasource3.username}") String username,
                                        @Value("${spring.datasource3.password}") String password,
                                        @Value("${spring.datasource3.url}") String url,

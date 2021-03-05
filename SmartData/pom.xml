@@ -18,9 +18,21 @@
 		<java.version>1.8</java.version>
 		<thymeleaf-spring5.version>3.0.9.RELEASE</thymeleaf-spring5.version>
 		<thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
+		<profiles.docker.tag>${project.version}-${maven.build.timestamp}</profiles.docker.tag>
+		<dockerfile-version>1.4.9</dockerfile-version>
+		<!-- registry.cn-shenzhen.aliyuncs.com/dockerspacetest/dockerdemo-->
+		<docker.repostory>registry.cn-shenzhen.aliyuncs.com</docker.repostory>
+		<docker.registry.name>dockerspacetest</docker.registry.name>
 	</properties>
 
 	<dependencies>
+		<!-- redisson -->
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>3.11.2</version>
+		</dependency>
+
 		<!-- mybatis-plus -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
@@ -321,6 +333,23 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<!-- docker构建插件 -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-version}</version>
+				<configuration>
+					<noCache>true</noCache>
+					<repository>${docker.repostory}/${docker.registry.name}</repository>
+					<tag>${profiles.docker.tag}</tag>
+					<username>落叶随风飘逝</username>
+					<password>@7495sky</password>
+					<buildArgs>
+						<JAR_FILE>target/${project.name}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

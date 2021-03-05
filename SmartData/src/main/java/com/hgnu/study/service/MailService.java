@@ -51,6 +51,6 @@ public interface MailService {
      * @param cc      抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    void sendResourceMail(String to, String subject, String content, String rscPath, String rscId, String... cc) throws MessagingException, com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+    void sendResourceMail(String to, String subject, String content, String rscPath, String rscId, String... cc) throws MessagingException;
 
 }

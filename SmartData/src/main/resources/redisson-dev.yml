@@ -8,7 +8,7 @@ singleServerConfig:
   password: 123456
   subscriptionsPerConnection: 5
   clientName: null
-  address: "redis://192.168.0.220:6379"
+  address: "redis://33.99.140.108:6379"
   subscriptionConnectionMinimumIdleSize: 1
   subscriptionConnectionPoolSize: 10
   connectionMinimumIdleSize: 5

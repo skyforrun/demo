@@ -21,7 +21,7 @@ public class RedissonConfig {
     @Autowired
     private Environment env;
 
-    @Bean(destroyMethod = "shutdown")
+    //@Bean(destroyMethod = "shutdown")
     public RedissonClient redissonClient() throws IOException {
         return Redisson.create(sonConfig());
     }

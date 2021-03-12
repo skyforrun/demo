@@ -52,6 +52,7 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
                 .excludePathPatterns("/oss/**").excludePathPatterns("/xxljob/**")
                 .excludePathPatterns("/admin/**").excludePathPatterns("/demo/**")
                 .excludePathPatterns("/login").excludePathPatterns("/doctor/**")
+                .excludePathPatterns("/project/**")
                 .excludePathPatterns("/swagger-ui.html").excludePathPatterns(
                 "/user/login",            //登录
                 "/**/*.html",            //html静态资源

@@ -1,42 +1,67 @@
 package com.hgnu.study.mybatisplus.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 
 /**
  * @Author zj
  * @Description
- * @Date 2021/3/12 15:43
+ * @Date 2021/3/15 10:32
  */
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Hospital {
+@TableName("health_worker")
+public class HealthWorker {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 医院名称
+     * 姓名
      */
     private String name;
 
     /**
-     * 区域ID,关联region表id
+     * 性别
      */
-    private Long regionId;
+    private String sex;
 
     /**
-     * 详细地址
+     * 岗位：医生 护士
+     */
+    private String post;
+
+    /**
+     * 通信地址
      */
     private String address;
 
     /**
-     * 备注信息
+     * 邮政编码
+     */
+    private String zipCode;
+
+    /**
+     * 身份证号
+     */
+    private String idcard;
+
+    /**
+     * 手机号
+     */
+    private String phone;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 备注
      */
     private String remark;
 

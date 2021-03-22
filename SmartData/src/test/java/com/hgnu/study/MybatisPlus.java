@@ -1,25 +1,15 @@
 package com.hgnu.study;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hgnu.study.annotation.MultiDataSourceTransactional;
 import com.hgnu.study.exception.TipException;
-import com.hgnu.study.mybatisplus.entity.Doctor;
-import com.hgnu.study.mybatisplus.entity.PageVo;
-import com.hgnu.study.mybatisplus.mapper.DoctorMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.annotation.Id;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootTest

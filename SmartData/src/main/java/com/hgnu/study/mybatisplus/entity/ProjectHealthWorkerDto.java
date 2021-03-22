@@ -1,28 +1,23 @@
 package com.hgnu.study.mybatisplus.entity;
 
-import com.sun.istack.internal.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 /**
  * @Author zj
  * @Description
- * @Date 2021/3/12 16:14
+ * @Date 2021/3/15 11:13
  */
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ProjectHospitalDto {
-
+public class ProjectHealthWorkerDto {
     private Long id;
 
     private Long projectId;
 
-    private Long hospitalId;
+    private Long healthworkerId;
 
     /**
      * 状态 101:已删除  0:未启用 1:已启用

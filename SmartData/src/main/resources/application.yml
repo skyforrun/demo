@@ -46,7 +46,7 @@ spring:
   datasource2:
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.0.220:3306/papv4_dev?serverTimezone=UTC&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.0.217:3306/papv4_dev?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   datasource3:
     username: root

@@ -4,24 +4,25 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 /**
  * @Author zj
  * @Description
- * @Date 2021/3/12 15:51
+ * @Date 2021/3/15 11:11
  */
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@TableName("project_hospital")
-public class ProjectHospital {
-
+@TableName("project_health_worker")
+public class ProjectHealthWorker {
     private Long id;
 
     private Long projectId;
 
-    private Long hospitalId;
+    private Long healthworkerId;
 
     private Long createAccount;
 

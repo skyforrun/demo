@@ -39,7 +39,7 @@ public class MailSendTest {
     }
 
     @Test
-    public void test4() throws MessagingException, com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException {
+    public void test4() throws MessagingException{
         mailService.sendResourceMail("18717121440@163.com","发送静态资源邮件测试","springboot发送静态资源测试","F:\\error.html","1",null);
     }
 }

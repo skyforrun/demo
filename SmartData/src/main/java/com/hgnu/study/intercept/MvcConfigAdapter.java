@@ -15,9 +15,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfigAdapter implements WebMvcConfigurer {
 
     @Autowired
-    SessionIntercept sessionIntercept;
-
-    @Autowired
     ExceptionHandleInterceptor exceptionHandleInterceptor;
 
     @Override
@@ -46,23 +43,6 @@ public class MvcConfigAdapter implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(sessionIntercept).addPathPatterns("/**").excludePathPatterns("/page/login")
-                .excludePathPatterns("/page/doLogin").excludePathPatterns("/error")
-                .excludePathPatterns("/code/**").excludePathPatterns("/city/**")
-                .excludePathPatterns("/oss/**").excludePathPatterns("/xxljob/**")
-                .excludePathPatterns("/admin/**").excludePathPatterns("/demo/**")
-                .excludePathPatterns("/login").excludePathPatterns("/doctor/**")
-                .excludePathPatterns("/project/**")
-                .excludePathPatterns("/swagger-ui.html").excludePathPatterns(
-                "/user/login",            //登录
-                "/**/*.html",            //html静态资源
-                "/**/*.js",              //js静态资源
-                "/**/*.css",             //css静态资源
-                "/**/*.woff",
-                "/**/*.ttf",
-                "/webjars/**",
-                "/v2/**",
-                "/swagger-resources/**");
         registry.addInterceptor(exceptionHandleInterceptor).addPathPatterns("/**").excludePathPatterns("/demo/**");
 
     }

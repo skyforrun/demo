@@ -12,4 +12,6 @@ public interface IProjectHealthWorkerService extends IService<ProjectHealthWorke
     void projectUnsetHealthWorker(List<ProjectHealthWorkerDto> projectHealthWorkerDtos);
 
     List queryBind(List<ProjectHealthWorkerDto> projectHealthWorkerDtos);
+
+    List<ProjectHealthWorker> queryAll();
 }

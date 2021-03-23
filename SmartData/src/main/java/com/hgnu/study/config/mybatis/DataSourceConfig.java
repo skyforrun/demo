@@ -39,14 +39,6 @@ public class DataSourceConfig {
         return createDataSource(username, password, url, driverClassName);
     }
 
-    @Bean
-    public DruidDataSource dataSource4(@Value("${spring.datasource4.username}") String username,
-                                       @Value("${spring.datasource4.password}") String password,
-                                       @Value("${spring.datasource4.url}") String url,
-                                       @Value("${spring.datasource4.driver-class-name}") String driverClassName) {
-        return createDataSource(username, password, url, driverClassName);
-    }
-
     private DruidDataSource createDataSource(String username, String password, String url, String driverClassName) {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUsername(username);

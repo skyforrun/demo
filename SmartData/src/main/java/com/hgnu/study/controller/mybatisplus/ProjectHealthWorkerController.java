@@ -1,6 +1,7 @@
 package com.hgnu.study.controller.mybatisplus;
 
 import com.hgnu.study.core.Result;
+import com.hgnu.study.mybatisplus.entity.ProjectHealthWorker;
 import com.hgnu.study.mybatisplus.entity.ProjectHealthWorkerDto;
 import com.hgnu.study.mybatisplus.service.IProjectHealthWorkerService;
 import io.swagger.annotations.Api;
@@ -50,5 +51,12 @@ public class ProjectHealthWorkerController {
     public Result queryBind(@RequestBody List<ProjectHealthWorkerDto> projectHealthWorkerDtos){
         List list = projectHealthWorkerService.queryBind(projectHealthWorkerDtos);
         return Result.success(list);
+    }
+
+    @GetMapping("/queryBind")
+    @ApiOperation(value="查询所有项目医护工作者")
+    public Result queryAll(){
+        List<ProjectHealthWorker> projectHealthWorkers = projectHealthWorkerService.queryAll();
+        return Result.success(projectHealthWorkers);
     }
 }

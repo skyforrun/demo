@@ -1,11 +1,11 @@
 package com.hgnu.study.controller.oss;
 
-import com.hgnu.study.annotation.RateLimiter;
+import com.hgnu.study.core.annotation.RateLimiter;
 import com.hgnu.study.core.Result;
-import com.hgnu.study.entity.oss.FileUploadResult;
-import com.hgnu.study.entity.oss.OssCallbackResult;
-import com.hgnu.study.entity.oss.OssPolicyResult;
-import com.hgnu.study.service.OssService;
+import com.hgnu.study.oss.entity.FileUploadResult;
+import com.hgnu.study.oss.entity.OssCallbackResult;
+import com.hgnu.study.oss.entity.OssPolicyResult;
+import com.hgnu.study.oss.service.OssService;
 import com.aliyun.oss.model.OSSObjectSummary;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

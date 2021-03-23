@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<mybatis-plus.version>3.4.2</mybatis-plus.version>
+		<mybatis-plus-generator.version>3.3.0</mybatis-plus-generator.version>
+		<mybatis-plus-extension.version>3.4.2</mybatis-plus-extension.version>
 		<thymeleaf-spring5.version>3.0.9.RELEASE</thymeleaf-spring5.version>
 		<thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
 		<profiles.docker.tag>${project.version}-${maven.build.timestamp}</profiles.docker.tag>
@@ -26,6 +29,12 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.flowable</groupId>
+			<artifactId>flowable-spring-boot-starter</artifactId>
+			<version>6.6.0</version>
+		</dependency>
+
 		<!-- redisson -->
 		<dependency>
 			<groupId>org.redisson</groupId>
@@ -37,37 +46,18 @@
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.4.2</version>
+			<version>${mybatis-plus.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-extension</artifactId>
 			<version>3.4.2</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jsqlparser</artifactId>
-					<groupId>com.github.jsqlparser</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>mybatis</artifactId>
-					<groupId>org.mybatis</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
-
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-generator</artifactId>
 			<version>3.3.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>mybatis-plus-extension</artifactId>
-					<groupId>com.baomidou</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
-
 		<dependency>
 			<groupId>p6spy</groupId>
 			<artifactId>p6spy</artifactId>

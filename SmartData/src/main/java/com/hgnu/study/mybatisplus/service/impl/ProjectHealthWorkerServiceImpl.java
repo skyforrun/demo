@@ -99,6 +99,12 @@ public class ProjectHealthWorkerServiceImpl extends ServiceImpl<ProjectHealthWor
         return list;
     }
 
+    @Override
+    public List<ProjectHealthWorker> queryAll() {
+        List<ProjectHealthWorker> projectHealthWorkers = baseMapper.selectList(null);
+        return projectHealthWorkers;
+    }
+
     /**
      * 逻辑删除绑定关系
      * @param id 项目药房id

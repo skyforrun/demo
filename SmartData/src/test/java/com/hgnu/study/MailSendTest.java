@@ -1,6 +1,6 @@
 package com.hgnu.study;
 
-import com.hgnu.study.service.MailService;
+import com.hgnu.study.mail.MailService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

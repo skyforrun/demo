@@ -32,7 +32,7 @@ public class Swagger2Config {
                 .select()
                 //此处根据情况自行添加需要将哪些接口纳入Swagger 文档管理。此处应用basePackage管理，还可以利用注解管理
                 //如果填写错误的话会出现“No operations defined in spec!” 的问题。
-                .apis(RequestHandlerSelectors.basePackage("com.hgnu.study.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.hgnu.study.controll"))
                 //指定路径处理PathSelectors.any()代表所有的路径
                 .paths(PathSelectors.any())
                 .build();

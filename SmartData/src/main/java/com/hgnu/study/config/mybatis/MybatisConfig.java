@@ -6,9 +6,7 @@ package com.hgnu.study.config.mybatis;
  * @date 2020/11/1716:32
  */
 
-import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import com.github.pagehelper.PageHelper;
 import com.hgnu.study.mybatisplus.config.PageConfig;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,9 +19,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-
 import javax.sql.DataSource;
-import java.util.Properties;
+
 
 public class MybatisConfig {
 
@@ -80,13 +77,18 @@ public class MybatisConfig {
     }
 
     @Configuration
-    @MapperScan(basePackages = "com.hgnu.study.mapper3", sqlSessionTemplateRef = "sqlSessionTemplate3")
+    @MapperScan(basePackages = "com.hgnu.study.elasticsearch.mapper",sqlSessionTemplateRef = "sqlSessionTemplate2")
     public static class Db3 {
+
+        @Autowired
+        PageConfig pageConfig;
 
         @Bean
         public SqlSessionFactory sqlSessionFactory3(@Qualifier("dataSource3") DataSource dataSource) throws Exception {
-            SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+            MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
+            //mybatis-plus配置分页
+            factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
             return factoryBean.getObject();
         }
 
@@ -97,28 +99,6 @@ public class MybatisConfig {
 
         @Bean
         public DataSourceTransactionManager dataSourceTransactionManager3(@Qualifier("dataSource3") DataSource dataSource) {
-            return new DataSourceTransactionManager(dataSource);
-        }
-    }
-
-    @Configuration
-    @MapperScan(basePackages = "com.hgnu.study.mapper4", sqlSessionTemplateRef = "sqlSessionTemplate4")
-    public static class Db4 {
-
-        @Bean
-        public SqlSessionFactory sqlSessionFactory4(@Qualifier("dataSource4") DataSource dataSource) throws Exception {
-            SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-            factoryBean.setDataSource(dataSource);
-            return factoryBean.getObject();
-        }
-
-        @Bean
-        public SqlSessionTemplate sqlSessionTemplate4(@Qualifier("sqlSessionFactory4") SqlSessionFactory sqlSessionFactory) throws Exception {
-            return new SqlSessionTemplate(sqlSessionFactory);
-        }
-
-        @Bean
-        public DataSourceTransactionManager dataSourceTransactionManager4(@Qualifier("dataSource4") DataSource dataSource) {
             return new DataSourceTransactionManager(dataSource);
         }
     }

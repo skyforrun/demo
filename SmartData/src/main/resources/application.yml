@@ -39,29 +39,29 @@ spring:
     mode: HTML5
     cache: false
   datasource:
-    username: postgres
-    password: post@123
-    url: jdbc:postgresql://192.168.1.245:5432/pg_byne
-    driver-class-name: org.postgresql.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.0.217:3306/zj_test?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource2:
     username: root
     password: 123456
     url: jdbc:mysql://192.168.0.217:3306/papv4_dev?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+#elasticsearch 和 二维码 专用
   datasource3:
     username: root
     password: 7495
-    url: jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC&characterEncoding=utf-8
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  datasource4:
-    username: root
-    password: 7495
-    url: jdbc:mysql://127.0.0.1:3306/springsecurity?serverTimezone=UTC&characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/world?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   #ES相关配置
   elasticsearch:
     rest:
       uris: localhost:9200
+  security:
+    user:
+      name: root
+      password: root
   #邮箱相关配置
   mail:
     host: smtp.qq.com
@@ -74,7 +74,7 @@ spring:
       mail.smtp.starttls.required: true
       mail.smtp.ssl.enable: true
       mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
-  #spring session配置，实现session共享，重启程序session不失效
+#spring session配置，实现session共享，重启程序session不失效
   session:
     store-type: redis
     redis:

@@ -1,8 +1,8 @@
 # 基础镜像
-FROM openjdk:8-jdk-alpine
+FROM java:8
 
 # 作者信息
-MAINTAINER "zj 1262345715@qq.com"
+MAINTAINER "zengjun 1262345715@qq.com"
 
 # 添加一个存储空间
 VOLUME /tmp
@@ -11,10 +11,7 @@ VOLUME /tmp
 EXPOSE 80
 
 # 添加变量，如果使用dockerfile-maven-plugin，则会自动替换这里的变量内容
-ARG JAR_FILE=target/spring-boot-demo-docker.jar
-
-# 往容器中添加jar包
-ADD ${JAR_FILE} app.jar
+COPY target/*.jar app.jar
 
 # 启动镜像自动运行程序
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]

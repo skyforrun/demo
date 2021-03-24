@@ -77,7 +77,7 @@ public class MybatisConfig {
     }
 
     @Configuration
-    @MapperScan(basePackages = "com.hgnu.study.elasticsearch.mapper",sqlSessionTemplateRef = "sqlSessionTemplate2")
+    @MapperScan(basePackages = "com.hgnu.study.elasticsearch.mapper",sqlSessionTemplateRef = "sqlSessionTemplate3")
     public static class Db3 {
 
         @Autowired

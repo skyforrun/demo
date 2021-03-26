@@ -3,6 +3,7 @@ package com.hgnu.study;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @author zj
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
  * @date 2020/11/13 14:44
  */
 
+@EnableAsync
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class SmartDataApplication {
 

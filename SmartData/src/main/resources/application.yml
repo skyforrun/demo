@@ -40,13 +40,13 @@ spring:
     cache: false
   datasource:
     username: root
-    password: 7495
-    url: jdbc:mysql://127.0.0.1:3306/zj_test?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    password: 123456
+    url: jdbc:mysql://192.168.0.217:3306/zj_test?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   datasource2:
     username: root
-    password: 7495
-    url: jdbc:mysql://192.168.0.217:3306/papv4_dev?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    password: 123456
+    url: jdbc:mysql://192.168.0.217:3306/mysql?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
 #elasticsearch 和 二维码 专用
   datasource3:

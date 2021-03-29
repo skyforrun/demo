@@ -19,9 +19,11 @@ import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 @Service
@@ -215,10 +217,11 @@ public class CityServiceImpl extends ServiceImpl<CityMapper,City> implements Cit
 
     @Override
     @Transactional("dataSourceTransactionManager3")
-    public List<City> queryWithRange(Integer pagesize,Integer offset) {
+    public Future<List<City>> queryWithRange(Integer pagesize, Integer offset) {
         boolean lookup = true;
         List<City> allHistoryList = new ArrayList<>();
         List<City> historyList;
+        Future<List<City>> future = new AsyncResult<>(allHistoryList);
         Map<String, Object> params = new HashMap<>();
         params.put("pagesize", pagesize);
         while (lookup) {
@@ -230,7 +233,7 @@ public class CityServiceImpl extends ServiceImpl<CityMapper,City> implements Cit
                 lookup = false;
             }
         }
-       return allHistoryList;
+       return future;
     }
 
 }

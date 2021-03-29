@@ -4,6 +4,7 @@ import com.hgnu.study.core.Result;
 import com.hgnu.study.elasticsearch.service.CityService;
 import com.hgnu.study.elasticsearch.entity.City;
 import com.hgnu.study.elasticsearch.thread.CityServiceThread;
+import com.hgnu.study.exception.TipException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -26,13 +27,6 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
-    @Autowired
-    @Qualifier("cachedThreadPool")
-    private ExecutorService executorService;
-
-    @Autowired
-    private CityServiceThread cityServiceThread;
-
     @ApiOperation(value = "导入所有数据库中商品到ES")
     @GetMapping(value = "/queryWithRange")
     @ApiImplicitParams({
@@ -40,13 +34,8 @@ public class CityController {
             @ApiImplicitParam(name="offset",value="那一页开始",defaultValue = "1")
     })
     public Result queryWithRange(Integer pagesize,Integer offset) throws ExecutionException, InterruptedException {
-       /*
-        List<City> cities = cityService.queryWithRange(pagesize,offset);
-        if (cities==null){
-            throw new TipException("dsad");
-        }*/
-        Future submit = executorService.submit(cityServiceThread);
-        return Result.success(submit.get());
+        Future<List<City>> future = cityService.queryWithRange(pagesize, offset);
+        return Result.success(future.get());
     }
 
 

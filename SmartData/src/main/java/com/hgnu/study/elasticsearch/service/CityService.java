@@ -5,6 +5,7 @@ import com.hgnu.study.elasticsearch.entity.City;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 public interface CityService extends IService<City> {
 
@@ -32,5 +33,5 @@ public interface CityService extends IService<City> {
 
     List<City> fuzzyQuery();
 
-    List<City> queryWithRange(Integer pagesize,Integer offset);
+    Future<List<City>> queryWithRange(Integer pagesize, Integer offset);
 }

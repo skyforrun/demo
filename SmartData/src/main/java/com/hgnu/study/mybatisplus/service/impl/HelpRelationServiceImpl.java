@@ -3,15 +3,20 @@ package com.hgnu.study.mybatisplus.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.hgnu.study.elasticsearch.entity.City;
 import com.hgnu.study.exception.TipException;
 import com.hgnu.study.mybatisplus.entity.HelpRelation;
 import com.hgnu.study.mybatisplus.mapper.HelpRelationMapper;
 import com.hgnu.study.mybatisplus.service.HelpRelationService;
+import com.sun.javafx.collections.MappingChange;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.Future;
 
 /**
  * @Author zj
@@ -22,12 +27,37 @@ import java.util.List;
 @Service
 public class HelpRelationServiceImpl extends ServiceImpl<HelpRelationMapper, HelpRelation> implements HelpRelationService {
 
+    @Autowired
+    HelpRelationMapper helpRelationMapper;
+
+    /**
+     * 异步调用返回future
+     * 对于返回值是future(非void),不会被AsyncUncaughtExceptionHandler处理,需要我们在方法中捕获异常并处理
+     * 或者再调用方法在调用future.get()时捕获异常进行处理
+     * @param current
+     * @param pagesize
+     * @return
+     */
     @Override
     @Transactional(value = "dataSourceTransactionManager2",rollbackFor = TipException.class)
-    public List<HelpRelation> selectByCondition(Integer current,Integer size){
-        IPage<HelpRelation> page = new Page(current,size);
-        IPage selectPage = baseMapper.selectPage(page, null);
-        List<HelpRelation> records = selectPage.getRecords();
-        return records  ;
+    @Async("taskExcutor")
+    public Future<List<HelpRelation>> selectByCondition(Integer current, Integer pagesize){
+        boolean lookup = true;
+        List<HelpRelation> allHistoryList = new ArrayList<>();
+        List<HelpRelation> historyList;
+        Future<List<HelpRelation>> listFuture = new AsyncResult<>(allHistoryList);
+        Map map = new HashMap(4);
+        while (lookup){
+            Integer index = (current-1) * pagesize;
+            map.put("current",index);
+            map.put("pagesize",pagesize);
+            historyList = baseMapper.queryPages();
+            if (historyList.size() < pagesize) {
+                lookup = false;
+            }
+            current++;
+            allHistoryList.addAll(historyList);
+        }
+        return listFuture;
     }
 }

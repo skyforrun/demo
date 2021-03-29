@@ -139,5 +139,7 @@ xxl:
     accessToken:
 
 mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

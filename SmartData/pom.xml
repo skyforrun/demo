@@ -55,8 +55,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-generator</artifactId>
-			<version>3.3.0</version>
+			<artifactId>mybatis-plus-annotation</artifactId>
+			<version>3.4.2</version>
 		</dependency>
 		<dependency>
 			<groupId>p6spy</groupId>
@@ -191,18 +191,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--Spring Boot集成mybatis-->
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.1.1</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>mybatis-spring</artifactId>
-					<groupId>org.mybatis</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+
 
 		<!--aop切面-->
 		<dependency>
@@ -408,6 +397,16 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<!--<includes>
+					<include>**/*.xml</include>
+				</includes>-->
+				<filtering>false</filtering>
+			</resource>
+		</resources>
 	</build>
 
 </project>

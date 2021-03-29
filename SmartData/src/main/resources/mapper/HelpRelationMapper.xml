@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnu.study.mybatisplus.mapper.HelpRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hgnu.study.mybatisplus.entity.HelpRelation">
+        <result column="help_topic_id" property="helpTopicId" />
+        <result column="help_keyword_id" property="helpKeywordId" />
+    </resultMap>
+
+    <select id="queryPages" resultMap="BaseResultMap">
+       SELECT help_topic_id,help_keyword_id FROM help_relation LIMIT 300
+    </select>
+
+</mapper>

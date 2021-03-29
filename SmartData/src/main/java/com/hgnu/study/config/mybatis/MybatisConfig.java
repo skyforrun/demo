@@ -18,6 +18,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
@@ -28,12 +31,17 @@ public class MybatisConfig {
     @MapperScan(basePackages = "com.hgnu.study.mapper",sqlSessionTemplateRef = "sqlSessionTemplate")
     public static class Db1 {
 
+        @Autowired
+        PageConfig pageConfig;
+
         @Bean
         @Primary
-        public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
-            SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        public MybatisSqlSessionFactoryBean sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) {
+            MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
-            return factoryBean.getObject();
+            //mybatis-plus配置分页
+            factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
+            return factoryBean;
         }
 
         @Bean
@@ -57,12 +65,12 @@ public class MybatisConfig {
         PageConfig pageConfig;
 
         @Bean
-        public SqlSessionFactory sqlSessionFactory2(@Qualifier("dataSource2") DataSource dataSource) throws Exception {
+        public MybatisSqlSessionFactoryBean sqlSessionFactory2(@Qualifier("dataSource2") DataSource dataSource) throws Exception {
             MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
             //mybatis-plus配置分页
             factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
-            return factoryBean.getObject();
+            return factoryBean;
         }
 
         @Bean
@@ -84,16 +92,16 @@ public class MybatisConfig {
         PageConfig pageConfig;
 
         @Bean
-        public SqlSessionFactory sqlSessionFactory3(@Qualifier("dataSource3") DataSource dataSource) throws Exception {
+        public MybatisSqlSessionFactoryBean sqlSessionFactory3(@Qualifier("dataSource3") DataSource dataSource) throws Exception {
             MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
             //mybatis-plus配置分页
             factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
-            return factoryBean.getObject();
+            return factoryBean;
         }
 
         @Bean
-        public SqlSessionTemplate sqlSessionTemplate3(@Qualifier("sqlSessionFactory3") SqlSessionFactory sqlSessionFactory) throws Exception {
+        public SqlSessionTemplate sqlSessionTemplate3(@Qualifier("sqlSessionFactory3") SqlSessionFactory sqlSessionFactory) {
             return new SqlSessionTemplate(sqlSessionFactory);
         }
 

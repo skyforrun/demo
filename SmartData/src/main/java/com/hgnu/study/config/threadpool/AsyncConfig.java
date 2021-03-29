@@ -2,6 +2,7 @@ package com.hgnu.study.config.threadpool;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -20,6 +21,7 @@ import java.util.concurrent.*;
 public class AsyncConfig implements AsyncConfigurer {
 
     @Override
+    @Bean(name = "taskExcutor")
     public Executor getAsyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(2);
@@ -27,6 +29,7 @@ public class AsyncConfig implements AsyncConfigurer {
         executor.setQueueCapacity(8);
         executor.setKeepAliveSeconds(0);
         executor.setThreadNamePrefix("batchThread-");
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         executor.initialize();
         return executor;
     }

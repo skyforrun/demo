@@ -36,12 +36,14 @@ public class MybatisConfig {
 
         @Bean
         @Primary
-        public MybatisSqlSessionFactoryBean sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) {
+        public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
             MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
             //mybatis-plus配置分页
             factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
-            return factoryBean;
+            //扫描mapper xml位置
+            factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
+            return factoryBean.getObject();
         }
 
         @Bean
@@ -65,12 +67,14 @@ public class MybatisConfig {
         PageConfig pageConfig;
 
         @Bean
-        public MybatisSqlSessionFactoryBean sqlSessionFactory2(@Qualifier("dataSource2") DataSource dataSource) throws Exception {
+        public SqlSessionFactory sqlSessionFactory2(@Qualifier("dataSource2") DataSource dataSource) throws Exception {
             MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
             //mybatis-plus配置分页
             factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
-            return factoryBean;
+            //扫描mapper xml位置
+            factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
+            return factoryBean.getObject();
         }
 
         @Bean
@@ -85,19 +89,21 @@ public class MybatisConfig {
     }
 
     @Configuration
-    @MapperScan(basePackages = "com.hgnu.study.elasticsearch.mapper",sqlSessionTemplateRef = "sqlSessionTemplate3")
+    @MapperScan(basePackages = "com.hgnu.study.*.mapper",sqlSessionTemplateRef = "sqlSessionTemplate3")
     public static class Db3 {
 
         @Autowired
         PageConfig pageConfig;
 
         @Bean
-        public MybatisSqlSessionFactoryBean sqlSessionFactory3(@Qualifier("dataSource3") DataSource dataSource) throws Exception {
+        public SqlSessionFactory sqlSessionFactory3(@Qualifier("dataSource3") DataSource dataSource) throws Exception {
             MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
             factoryBean.setDataSource(dataSource);
             //mybatis-plus配置分页
             factoryBean.setPlugins(new Interceptor[]{pageConfig.mybatisPlusInterceptor()});
-            return factoryBean;
+            //扫描mapper xml位置
+            factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
+            return factoryBean.getObject();
         }
 
         @Bean

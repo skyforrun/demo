@@ -19,6 +19,7 @@ import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -217,6 +218,7 @@ public class CityServiceImpl extends ServiceImpl<CityMapper,City> implements Cit
 
     @Override
     @Transactional("dataSourceTransactionManager3")
+    @Async("taskExcutor")
     public Future<List<City>> queryWithRange(Integer pagesize, Integer offset) {
         boolean lookup = true;
         List<City> allHistoryList = new ArrayList<>();
@@ -226,7 +228,7 @@ public class CityServiceImpl extends ServiceImpl<CityMapper,City> implements Cit
         params.put("pagesize", pagesize);
         while (lookup) {
             params.put("offset", (offset-1)*pagesize);
-            historyList = baseMapper.selectByMap(params);
+            historyList = baseMapper.queryMap(params);
             offset++;
             allHistoryList.addAll(historyList);
             if (historyList.size() < pagesize) {

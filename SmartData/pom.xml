@@ -23,9 +23,8 @@
 		<thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
 		<profiles.docker.tag>${project.version}-${maven.build.timestamp}</profiles.docker.tag>
 		<dockerfile-version>1.4.9</dockerfile-version>
-		<!-- registry.cn-shenzhen.aliyuncs.com/dockerspacetest/dockerdemo-->
-		<docker.repostory>registry.cn-shenzhen.aliyuncs.com</docker.repostory>
-		<docker.registry.name>dockerspacetest</docker.registry.name>
+		<docker.repostory>ccr.ccs.tencentyun.com/demofortest/rest</docker.repostory>
+		<docker.registry.name>demofortest</docker.registry.name>
 	</properties>
 
 	<dependencies>
@@ -306,21 +305,6 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>junit</artifactId>
-					<groupId>junit</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>objenesis</artifactId>
-					<groupId>org.objenesis</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -389,8 +373,6 @@
 					<noCache>true</noCache>
 					<repository>${docker.repostory}/${docker.registry.name}</repository>
 					<tag>${profiles.docker.tag}</tag>
-					<username>谁又谁了的</username>
-					<password>@7495sky</password>
 					<buildArgs>
 						<JAR_FILE>target/${project.name}.jar</JAR_FILE>
 					</buildArgs>

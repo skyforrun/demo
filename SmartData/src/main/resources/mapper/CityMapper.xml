@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hgnu.study.elasticsearch.mapper.CityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.hgnu.study.elasticsearch.entity.City">
+        <id property="id" column="ID"></id>
+        <result property="name" column="Name"></result>
+        <result property="countrycode" column="CountryCode"></result>
+        <result property="district" column="District"></result>
+        <result property="population" column="Population"></result>
+    </resultMap>
+
+    <select id="queryMap" resultMap="BaseResultMap">
+        select * from city limit #{offset},#{pagesize}
+    </select>
+
+
+</mapper>

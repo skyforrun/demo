@@ -3,20 +3,15 @@ package com.hgnu.study.controller.elasticsearch;
 import com.hgnu.study.core.Result;
 import com.hgnu.study.elasticsearch.service.CityService;
 import com.hgnu.study.elasticsearch.entity.City;
-import com.hgnu.study.elasticsearch.thread.CityServiceThread;
-import com.hgnu.study.exception.TipException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
 @RestController

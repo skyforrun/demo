@@ -1,16 +1,20 @@
 package com.hgnu.study.elasticsearch.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @Document(indexName = "pms", type = "product",shards = 1,replicas = 0)
+@TableName("city")
 public class City {
 
     private static final long serialVersionUID = -1L;
 
     @Id
+    @TableId
     private Long id;
 
     @Field(analyzer = "ik_max_word",type = FieldType.Text)

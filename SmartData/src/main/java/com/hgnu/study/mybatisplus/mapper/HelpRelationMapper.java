@@ -8,7 +8,5 @@ import java.util.Map;
 
 public interface HelpRelationMapper extends BaseMapper<HelpRelation> {
 
-    List<HelpRelation> selectByCondition();
-
-    List<HelpRelation> queryPages();
+    List<HelpRelation> queryPages(@Param("params") Map<String, Object> params);
 }

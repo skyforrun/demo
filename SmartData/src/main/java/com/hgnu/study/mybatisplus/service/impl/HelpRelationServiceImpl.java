@@ -22,9 +22,6 @@ import java.util.concurrent.Future;
 @Service
 public class HelpRelationServiceImpl extends ServiceImpl<HelpRelationMapper, HelpRelation> implements HelpRelationService {
 
-    @Autowired
-    HelpRelationMapper helpRelationMapper;
-
     /**
      * 异步调用返回future
      * 对于返回值是future(非void),不会被AsyncUncaughtExceptionHandler处理,需要我们在方法中捕获异常并处理
@@ -46,7 +43,7 @@ public class HelpRelationServiceImpl extends ServiceImpl<HelpRelationMapper, Hel
             Integer index = (current-1) * pagesize;
             map.put("current",index);
             map.put("pagesize",pagesize);
-            historyList = baseMapper.queryPages();
+            historyList = baseMapper.queryPages(map);
             if (historyList.size() < pagesize) {
                 lookup = false;
             }

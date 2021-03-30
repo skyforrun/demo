@@ -9,7 +9,13 @@
     </resultMap>
 
     <select id="queryPages" resultMap="BaseResultMap">
-       SELECT help_topic_id,help_keyword_id FROM help_relation LIMIT 300
+       SELECT help_topic_id,help_keyword_id FROM help_relation limit
+       <if test="params.current != null">
+           #{params.current},
+       </if>
+        <if test="params.pagesize != null">
+            #{params.pagesize}
+        </if>
     </select>
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.hgnu.study.psvm;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * @Author zj
  * @Description
@@ -7,6 +9,12 @@ package com.hgnu.study.psvm;
  */
 public class T {
     public static void main(String[] args) {
-        System.out.println("ds");
+       String json = "{\"appeal\": \"pap\",\n" +
+               "  \"idsnFrontUrl\": \"资金\",\n" +
+               "  \"idsnBackUrl\": \"demoData\"}";
+
+        JSONObject jsonObject = JSONObject.parseObject(json);
+        String appeal = jsonObject.getString("appeal");
+        System.out.println(appeal);
     }
 }
